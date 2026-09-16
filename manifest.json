@@ -1,0 +1,1366 @@
+[
+  {
+    "url": "https://browser.sentry-cdn.com/7.120.3/bundle.tracing.es5.min.js",
+    "path": "assets/3a3886e343923404.js",
+    "bytes": 131854
+  },
+  {
+    "url": "https://browser.sentry-cdn.com/7.120.3/modulemetadata.es5.min.js",
+    "path": "assets/da9055dc05b0d8f5.js",
+    "bytes": 3323
+  },
+  {
+    "url": "https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%22a0c68605-c2e7-4c8d-9ea1-767f9770e087%22%3A%226855%22%2C%22b976560c-3122-4351-878f-453f337b7245%22%3A%221358%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&appDefinitionIdsWithCustomCss=%5B%22a0c68605-c2e7-4c8d-9ea1-767f9770e087%22%5D&beckyExperiments=.DatePickerPortal%2C.DisableDocumentScrollWhenLightBoxOpen%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNestedLoginSocialBarMenuItems%2C.UseNewLoginBarDropdownMenuAlignment%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.a11yContrast%2C.addIdAsClassName%2C.allowWebpAvifTransforms%2C.builderBoxSizingBorderBox%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.dom_store%2C.dontApplyDacOverridesOnBoBApps%2C.dynamicPageLinkTarget%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.fixDocumentLinkInPremiumPreview%2C.fixFirefoxLinkBarIntrinsicSizing%2C.fixRemappedFullNameCompType%2C.imageEncodingAVIF%2C.isClassNameToRootEnabled%2C.logVsmFeaturesModuleDiff%2C.motionTimeAnimationsCSS%2C.resolveManifestInTB%2C.responsiveContainerRoleGroup%2C.sectionA11yProps%2C.shouldUseResponsiveImages%2C.splitSlotSelectors%2C.stopResolvingInnerSelectors_VAG%2C.svgResolver_2%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useFragmentHrefForTopBottomAnchor%2C.useImageAvifFormatInNativeProGallery%2C.useResponsiveImgClassicFixed%2C.useSvgLoaderFeature%2C.useSvgLoaderFeatureOnBuilderComps%2C.useWowImageInFastGallery%2C.vsmFeaturesModule%2C.vsm_interactions_v1&blocksBuilderManifestGeneratorVersion=1.129.0&coBrandingBanner=true&contentType=application%2Fjson&deviceType=Desktop&dfCk=6&dfVersion=1.5593.0&disableStaticPagesUrlHierarchy=false&editorName=Studio&experiments=dm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.thecaravaggio.com&fileId=ebccda72.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isMultilingualEnabled=false&isPremiumDomain=true&isResponsive=true&isTrackClicksAnalyticsEnabled=false&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=false&language=en&languageResolutionMethod=QueryParam&metaSiteId=a92de65d-5ffd-48a6-8dc2-e0655ea0b1c8&module=thunderbolt-features&originalLanguage=en&pageId=de1bc2_8555182d720df4d92f8e98a132599c1d_170.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.15500.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.15500.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=3b230351-003d-4647-9922-513a0bad5a0f&siteRevision=170&staticHTMLComponentUrl=https%3A%2F%2Fwww-thecaravaggio-com.filesusr.com%2F&useSandboxInHTMLComp=false&viewMode=desktop",
+    "path": "assets/0cfe0b82440be629.json",
+    "bytes": 225259
+  },
+  {
+    "url": "https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%22a0c68605-c2e7-4c8d-9ea1-767f9770e087%22%3A%226855%22%2C%22b976560c-3122-4351-878f-453f337b7245%22%3A%221358%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&appDefinitionIdsWithCustomCss=%5B%22a0c68605-c2e7-4c8d-9ea1-767f9770e087%22%5D&beckyExperiments=.DatePickerPortal%2C.DisableDocumentScrollWhenLightBoxOpen%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNestedLoginSocialBarMenuItems%2C.UseNewLoginBarDropdownMenuAlignment%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.a11yContrast%2C.addIdAsClassName%2C.allowWebpAvifTransforms%2C.builderBoxSizingBorderBox%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.dom_store%2C.dontApplyDacOverridesOnBoBApps%2C.dynamicPageLinkTarget%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.fixDocumentLinkInPremiumPreview%2C.fixFirefoxLinkBarIntrinsicSizing%2C.fixRemappedFullNameCompType%2C.imageEncodingAVIF%2C.isClassNameToRootEnabled%2C.logVsmFeaturesModuleDiff%2C.motionTimeAnimationsCSS%2C.resolveManifestInTB%2C.responsiveContainerRoleGroup%2C.sectionA11yProps%2C.shouldUseResponsiveImages%2C.splitSlotSelectors%2C.stopResolvingInnerSelectors_VAG%2C.svgResolver_2%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useFragmentHrefForTopBottomAnchor%2C.useImageAvifFormatInNativeProGallery%2C.useResponsiveImgClassicFixed%2C.useSvgLoaderFeature%2C.useSvgLoaderFeatureOnBuilderComps%2C.useWowImageInFastGallery%2C.vsmFeaturesModule%2C.vsm_interactions_v1&blocksBuilderManifestGeneratorVersion=1.129.0&coBrandingBanner=true&contentType=application%2Fjson&deviceType=Desktop&dfCk=6&dfVersion=1.5593.0&disableStaticPagesUrlHierarchy=false&editorName=Studio&experiments=dm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.thecaravaggio.com&fileId=ebccda72.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isMultilingualEnabled=false&isPremiumDomain=true&isResponsive=true&isTrackClicksAnalyticsEnabled=false&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=false&language=en&languageResolutionMethod=QueryParam&metaSiteId=a92de65d-5ffd-48a6-8dc2-e0655ea0b1c8&module=thunderbolt-features&originalLanguage=en&pageId=de1bc2_dd00726c4dee94fb0eb45a1dbddf845a_170.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.15500.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.15500.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=3b230351-003d-4647-9922-513a0bad5a0f&siteRevision=170&staticHTMLComponentUrl=https%3A%2F%2Fwww-thecaravaggio-com.filesusr.com%2F&useSandboxInHTMLComp=false&viewMode=desktop",
+    "path": "assets/ad563d690b4c935e.json",
+    "bytes": 452517
+  },
+  {
+    "url": "https://siteassets.parastorage.com/pages/pages/thunderbolt?appDefinitionIdToSiteRevision=%7B%22a0c68605-c2e7-4c8d-9ea1-767f9770e087%22%3A%226855%22%2C%22b976560c-3122-4351-878f-453f337b7245%22%3A%221358%22%2C%2214271d6f-ba62-d045-549b-ab972ae1f70e%22%3A%2225%22%7D&appDefinitionIdsWithCustomCss=%5B%22a0c68605-c2e7-4c8d-9ea1-767f9770e087%22%5D&beckyExperiments=.DatePickerPortal%2C.EnableCustomCSSVarsForLoginSocialBar%2C.FreemiumBannerOdeditor%2C.LoginBarEnableLoggingInStateInSSR%2C.TextInputAutoFillFix%2C.UseLoginSocialBarCustomMenu%2C.UseNestedLoginSocialBarMenuItems%2C.UseNewLoginBarDropdownMenuAlignment%2C.UseNewLoginSocialBarElementStructure%2C.UseNewLoginSocialBarMemberInitialsAvatar%2C.WixFreeSiteBannerDesktop%2C.WixFreeSiteBannerMobile%2C.addIdAsClassName%2C.buttonUdp%2C.calculateCollapsibleTextLineHeightByFont%2C.dynamicPageLinkTarget%2C.dynamicSlots%2C.fiveGridLineStudioSkins%2C.fixFirefoxLinkBarIntrinsicSizing%2C.isClassNameToRootEnabled%2C.logVsmPlatformDiff%2C.migrateSdkDataMappers%2C.resolveManifestInTB%2C.splitSlotSelectors%2C.stopResolvingInnerSelectors_VAG%2C.svgResolver_2%2C.updateRichTextSemanticClassNamesOnCorvid%2C.useClassnameInResponsiveAppWidget%2C.useImageAvifFormatInNativeProGallery%2C.useWowImageInFastGallery&blocksBuilderManifestGeneratorVersion=1.129.0&coBrandingBanner=true&contentType=application%2Fjson&dfCk=6&dfVersion=1.5593.0&editorName=Studio&experiments=dm_masterPageVariablesQueryFixer%2Cdm_migrateOldHoverBoxToNewFixer&externalBaseUrl=https%3A%2F%2Fwww.thecaravaggio.com&fileId=ac284a06.bundle.min&formFactor=desktop&hasTPAWorkerOnSite=false&hasUserDomainMedia=false&isBuilderComponentModel=false&isHttps=true&isInSeo=false&isPremiumDomain=true&isResponsive=true&isUrlMigrated=true&isWixCodeOnPage=false&isWixCodeOnSite=false&language=en&metaSiteId=a92de65d-5ffd-48a6-8dc2-e0655ea0b1c8&module=thunderbolt-platform&originalLanguage=en&pageId=de1bc2_dd00726c4dee94fb0eb45a1dbddf845a_170.json&pilerExperiments=specs.piler.useEditorReactComponents&quickActionsMenuEnabled=false&registryLibrariesTopology=%5B%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22wixui%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.15500.0%22%7D%2C%7B%22artifactId%22%3A%22editor-elements%22%2C%22namespace%22%3A%22dsgnsys%22%2C%22url%22%3A%22https%3A%2F%2Fstatic.parastorage.com%2Fservices%2Feditor-elements%2F1.15500.0%22%7D%5D&remoteWidgetStructureBuilderVersion=1.251.0&siteId=3b230351-003d-4647-9922-513a0bad5a0f&siteRevision=170&staticHTMLComponentUrl=https%3A%2F%2Fwww-thecaravaggio-com.filesusr.com%2F&viewMode=desktop",
+    "path": "assets/f2abe93a25b92c32.json",
+    "bytes": 111532
+  },
+  {
+    "url": "https://static.parastorage.com/fonts/v2/2af1bf48-e783-4da8-9fa0-599dde29f2d5/v1/helvetica-w01-roman.woff2",
+    "path": "assets/00915920e370420b.woff2",
+    "bytes": 36712
+  },
+  {
+    "url": "https://static.parastorage.com/fonts/v2/e333842f-0a84-43f9-9ab7-fb1093ba1628/v1/helveticaneuew01-45ligh.latin.woff2",
+    "path": "assets/6acf24efb83ab21b.woff2",
+    "bytes": 14836
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[CollapsibleText_CollapsibleText].598097c8.min.css",
+    "path": "assets/c7efa02e9a52b417.css",
+    "bytes": 13061
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[Container_ResponsiveBox].ce566e07.min.css",
+    "path": "assets/169e404f8b59f188.css",
+    "bytes": 1193
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[CustomElementComponent_CustomElement].eabbd161.min.css",
+    "path": "assets/e34661dd9b5d8ce0.css",
+    "bytes": 95
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[FiveGridLine_SolidLineStudio].95d42e2b.min.css",
+    "path": "assets/3373195502d17b8b.css",
+    "bytes": 132
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[FooterSection].62219e60.min.css",
+    "path": "assets/25c5912b7fde7e0a.css",
+    "bytes": 8569
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[HeaderSection].ccfc51c3.min.css",
+    "path": "assets/2226745876acafea.css",
+    "bytes": 8717
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[ImageX].cb16f202.min.css",
+    "path": "assets/e10792e2aa4361ba.css",
+    "bytes": 2078
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[LinkBar_Responsive].e175f21e.min.css",
+    "path": "assets/7eecfa339ce9d321.css",
+    "bytes": 1159
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[MenuContainer_Responsive].b4ae898e.min.css",
+    "path": "assets/689add7233821cde.css",
+    "bytes": 2614
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[PageSections].7dbf3cd4.min.css",
+    "path": "assets/adab9a932ca36271.css",
+    "bytes": 25
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[RefComponent].98cd6e5f.min.css",
+    "path": "assets/03a9a6a1dda50f9a.css",
+    "bytes": 99
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[Repeater_Responsive].bf0a2500.min.css",
+    "path": "assets/58aea4d47925f7f3.css",
+    "bytes": 696
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[Section].62219e60.min.css",
+    "path": "assets/16505451a8a7635d.css",
+    "bytes": 8569
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[SkipToContentButton].c9649c22.min.css",
+    "path": "assets/05a09f59318e3897.css",
+    "bytes": 410
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[StylableButton_Default].a4db0646.min.css",
+    "path": "assets/1067c181ee50c675.css",
+    "bytes": 5400
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[TextMarquee].f51d8604.min.css",
+    "path": "assets/b056ca60b993d115.css",
+    "bytes": 2606
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[VectorImage_VectorButton].8d19a428.min.css",
+    "path": "assets/0d5457a0ed5a8074.css",
+    "bytes": 762
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_bootstrap-responsive.4e8a21db.min.css",
+    "path": "assets/6707236ba0263572.css",
+    "bytes": 2674
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_bootstrap.674e7dbc.min.css",
+    "path": "assets/792822627a975d62.css",
+    "bytes": 15506
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_menu.45f28881.min.css",
+    "path": "assets/90259bcd92a938dc.css",
+    "bytes": 86314
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_mobile.482f1cf1.min.css",
+    "path": "assets/39a6d0bb8bcbf9cf.css",
+    "bytes": 48236
+  },
+  {
+    "url": "https://static.parastorage.com/services/tag-manager-client/1.1075.0/siteTags.bundle.min.js",
+    "path": "assets/15630fe6222512a6.js",
+    "bytes": 9416
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/animations.d94f0463.chunk.min.js",
+    "path": "assets/9212e96d03ee56b9.js",
+    "bytes": 15443
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/bi-common.inline.98e56497.bundle.min.js",
+    "path": "assets/1b8a9e566dda0d1e.js",
+    "bytes": 7108
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/bi.inline.ae93e7f6.bundle.min.js",
+    "path": "assets/78c98df0aa209ab4.js",
+    "bytes": 4383
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/browser-deprecation.bundle.es5.js",
+    "path": "assets/3442e8618b6cbaec.js",
+    "bytes": 3828
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/componentsLoader.037bc6b5.chunk.min.js",
+    "path": "assets/a16379fdc9602841.js",
+    "bytes": 543
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/createPlatformWorker.inline.a9bb4739.bundle.min.js",
+    "path": "assets/754e2be5c902f149.js",
+    "bytes": 1727
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/custom-element-utils.inline.d1c22229.bundle.min.js",
+    "path": "assets/01bd6d6d787dfc1b.js",
+    "bytes": 55191
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/externals-registry.inline.c335b0f1.bundle.min.js",
+    "path": "assets/81e8e27b3495b0a1.js",
+    "bytes": 1073
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/fastdom.inline.48a8bd4b.bundle.min.js",
+    "path": "assets/e69b91c030b9fbeb.js",
+    "bytes": 1627
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_0.b58e75e0.chunk.min.js",
+    "path": "assets/66417abddf171d4c.js",
+    "bytes": 1131
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_11.18733d1a.chunk.min.js",
+    "path": "assets/edf81c074c787b6f.js",
+    "bytes": 1075
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_14.a7e0cdf0.chunk.min.js",
+    "path": "assets/2f3c6badad95f99f.js",
+    "bytes": 3463
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_2.67c33638.chunk.min.js",
+    "path": "assets/b3a06fe1c973aeed.js",
+    "bytes": 54373
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_22.e636f159.chunk.min.js",
+    "path": "assets/b607596dd0e4deb1.js",
+    "bytes": 2552
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_24.305e8c68.chunk.min.js",
+    "path": "assets/ea27cd0bc69006c7.js",
+    "bytes": 3365
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_28.517aa7aa.chunk.min.js",
+    "path": "assets/376863dbd0d47676.js",
+    "bytes": 676
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_3.fbd62613.chunk.min.js",
+    "path": "assets/8eae75fbb0f72e21.js",
+    "bytes": 71901
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_30.9d2d4c10.chunk.min.js",
+    "path": "assets/73ed4947c09479e3.js",
+    "bytes": 12036
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_31.820e7611.chunk.min.js",
+    "path": "assets/37c3135e3b0aec88.js",
+    "bytes": 1672
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_4.38c4c5c0.chunk.min.js",
+    "path": "assets/0474300b4cae4f5a.js",
+    "bytes": 38580
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_41.fdc7f282.chunk.min.js",
+    "path": "assets/d397d75d3282cf91.js",
+    "bytes": 4761
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_44.32da439a.chunk.min.js",
+    "path": "assets/69d8df3738c9210a.js",
+    "bytes": 3062
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_5.ed1c183e.chunk.min.js",
+    "path": "assets/fa70061e1395185e.js",
+    "bytes": 37827
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_6.b061daac.chunk.min.js",
+    "path": "assets/8704a337ff90e704.js",
+    "bytes": 252688
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_7.0a21109c.chunk.min.js",
+    "path": "assets/48c7921d271977d5.js",
+    "bytes": 16896
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_7.c472a333.chunk.min.css",
+    "path": "assets/67124eb3aef0a227.css",
+    "bytes": 181
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/group_9.7d089667.chunk.min.js",
+    "path": "assets/4785644cc1f286ce.js",
+    "bytes": 62119
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/handleAccessTokens.inline.3250797b.bundle.min.js",
+    "path": "assets/12168d699d487a2f.js",
+    "bytes": 7164
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/initCustomElements.inline.51cbd1b6.bundle.min.js",
+    "path": "assets/0efad7d4ce078f0e.js",
+    "bytes": 10268
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/lazyCustomElementWrapper.inline.eefbcea5.bundle.min.js",
+    "path": "assets/2b0075986413ead1.js",
+    "bytes": 486
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/main.744ea815.min.css",
+    "path": "assets/94d943d7850af9f6.css",
+    "bytes": 3714
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/main.cc56b4b4.bundle.min.js",
+    "path": "assets/77ee645b92f7b59d.js",
+    "bytes": 229948
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/main.renderer.99fa8096.bundle.min.js",
+    "path": "assets/9826d3bc7dcd6909.js",
+    "bytes": 152
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/main.renderer.d1b87f2e.min.css",
+    "path": "assets/3c4a7a65e92de409.css",
+    "bytes": 9424
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/motion.b080ca8f.chunk.min.js",
+    "path": "assets/b9aa8b6b28b98f3c.js",
+    "bytes": 139393
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/navigation.eba89c08.chunk.min.js",
+    "path": "assets/50c93cacd9e812b1.js",
+    "bytes": 884
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/overrideGlobals.inline.b271af7d.bundle.min.js",
+    "path": "assets/b91c8c8b5013c2f5.js",
+    "bytes": 7621
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/pageAnchors.5ac241c2.chunk.min.js",
+    "path": "assets/276f74a47daad606.js",
+    "bytes": 462
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/platform.d1162e0c.chunk.min.js",
+    "path": "assets/d87210a22eeded7f.js",
+    "bytes": 6680
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/renderer.320eeef1.chunk.min.js",
+    "path": "assets/89422d8f0e8f4931.js",
+    "bytes": 13152
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/router.32a795c0.chunk.min.js",
+    "path": "assets/49894b5ee8954ab8.js",
+    "bytes": 1660
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/scrollToAnchor.bd63e157.chunk.min.js",
+    "path": "assets/dcc7a11b20bd816f.js",
+    "bytes": 3040
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/sendBeat12.inline.995b241c.bundle.min.js",
+    "path": "assets/233c1941546deec3.js",
+    "bytes": 4512
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/sendFedopsLoadStarted.inline.ed1ed98a.bundle.min.js",
+    "path": "assets/42bf1d3746361a8b.js",
+    "bytes": 6512
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/stores.271cca5b.chunk.min.js",
+    "path": "assets/b5f3fbea54e4972b.js",
+    "bytes": 6716
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/thunderbolt-commons.633d7462.bundle.min.js",
+    "path": "assets/c0aeb473305aba62.js",
+    "bytes": 154281
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/thunderbolt-components-registry.1d402c62.chunk.min.js",
+    "path": "assets/0fb21e2cb46be071.js",
+    "bytes": 23121
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/triggersAndReactions.2c5caf8e.chunk.min.js",
+    "path": "assets/28de64ac6dadb1b3.js",
+    "bytes": 1271
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/warmupData.780ab490.chunk.min.js",
+    "path": "assets/c8c9e96087ee8bac.js",
+    "bytes": 378
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/webpack-runtime.8bebb25d.bundle.min.js",
+    "path": "assets/e7eadbeb2edec0c7.js",
+    "bytes": 15892
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/windowMessageRegister.inline.5cd174ec.bundle.min.js",
+    "path": "assets/c225ac8374aaabee.js",
+    "bytes": 639
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/windowScroll.94e57fc8.chunk.min.js",
+    "path": "assets/e1728eab0d135936.js",
+    "bytes": 463
+  },
+  {
+    "url": "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/cormorantgaramond/v5/iEjm9hVxcattz37Y8gZwVVYUpUlN7yzNHgIMH66hSOI.woff2",
+    "path": "assets/98c2cfa4e818e0df.woff2",
+    "bytes": 52736
+  },
+  {
+    "url": "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/cormorantgaramond/v5/iEjm9hVxcattz37Y8gZwVXP87xhFzkXvitf5EbJwljk.woff2",
+    "path": "assets/036333d811855ee0.woff2",
+    "bytes": 52584
+  },
+  {
+    "url": "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/cormorantgaramond/v5/zuqx3k1yUEl3Eavo-ZPEAjp2K1CgsixPpkXulytJk5A.woff2",
+    "path": "assets/858beccd4d726649.woff2",
+    "bytes": 56824
+  },
+  {
+    "url": "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/cormorantgaramond/v5/zuqx3k1yUEl3Eavo-ZPEAoNfVaeyxI1fRb3LCiKLt24.woff2",
+    "path": "assets/ed85358381d9497d.woff2",
+    "bytes": 56840
+  },
+  {
+    "url": "https://static.parastorage.com/tag-bundler/api/v1/fonts-cache/googlefont/woff2/s/cormorantgaramond/v5/zuqx3k1yUEl3Eavo-ZPEAoWXH9gdibkBmfnjU2pcZcs.woff2",
+    "path": "assets/ff736f9c0c3ea0a2.woff2",
+    "bytes": 56188
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/@formatjs/intl-segmenter@11.7.10/polyfill.iife.js",
+    "path": "assets/150bf240c6ef96e6.js",
+    "bytes": 432253
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/core-js-bundle@3.2.1/minified.js",
+    "path": "assets/48b0df739dbf7fd8.js",
+    "bytes": 137771
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/focus-within-polyfill@5.0.9/dist/focus-within-polyfill.js",
+    "path": "assets/3edb9633678f1a7f.js",
+    "bytes": 1171
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/lodash@4.17.23/lodash.min.js",
+    "path": "assets/3a1ef227d1b26c33.js",
+    "bytes": 73320
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/react-dom@18.3.1/umd/react-dom.production.min.js",
+    "path": "assets/ee3bc6c535935152.js",
+    "bytes": 131835
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/react@18.3.1/umd/react.production.min.js",
+    "path": "assets/0d3a43bab476b6b1.js",
+    "bytes": 10751
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_12ebd11724274a558f943824f3993700~mv2.webp/v1/fit/w_1920,h_1442,q_90,enc_avif,quality_auto/920c1a_12ebd11724274a558f943824f3993700~mv2.webp",
+    "path": "assets/b243e672d635e20d.webp",
+    "bytes": 197146
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_12ebd11724274a558f943824f3993700~mv2.webp/v1/fit/w_2847,h_2138,q_90,enc_avif,quality_auto/920c1a_12ebd11724274a558f943824f3993700~mv2.webp",
+    "path": "assets/75a87d0782a41b2b.webp",
+    "bytes": 414122
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_12ebd11724274a558f943824f3993700~mv2.webp/v1/fit/w_960,h_721,q_90,enc_avif,quality_auto/920c1a_12ebd11724274a558f943824f3993700~mv2.webp",
+    "path": "assets/3dae69f032214ed3.webp",
+    "bytes": 46002
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_1b5a44bdafea4f3894b46675354f13bd~mv2.png/v1/fill/w_78,h_75,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Projekt%20bez%20nazwy-7.png",
+    "path": "assets/daeea62dea59ea69.png",
+    "bytes": 10326
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp/v1/fill/w_147,h_180,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/EdWrightImages_-2292.webp",
+    "path": "assets/f0b23243454223d3.webp",
+    "bytes": 1908
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp/v1/fit/w_1920,h_1442,q_90,enc_avif,quality_auto/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp",
+    "path": "assets/f79de55db5a8a131.webp",
+    "bytes": 177772
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp/v1/fit/w_2880,h_2163,q_90,enc_avif,quality_auto/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp",
+    "path": "assets/e5326064ec95ba44.webp",
+    "bytes": 414118
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp/v1/fit/w_3153,h_2368,q_90,enc_avif,quality_auto/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp",
+    "path": "assets/5d8ce2e121ac88e7.webp",
+    "bytes": 479206
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp/v1/fit/w_960,h_721,q_90,enc_avif,quality_auto/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp",
+    "path": "assets/b619befecf88c520.webp",
+    "bytes": 35044
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_3a9b34afeb8f443c88825d0e23747629%7Emv2.png/v1/fill/w_180%2Ch_180%2Clg_1%2Cusm_0.66_1.00_0.01/920c1a_3a9b34afeb8f443c88825d0e23747629%7Emv2.png",
+    "path": "assets/18c2b2a8b562f818.png",
+    "bytes": 70352
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_3a9b34afeb8f443c88825d0e23747629%7Emv2.png/v1/fill/w_192%2Ch_192%2Clg_1%2Cusm_0.66_1.00_0.01/920c1a_3a9b34afeb8f443c88825d0e23747629%7Emv2.png",
+    "path": "assets/85624c9b84993f5d.png",
+    "bytes": 79851
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_3a9b34afeb8f443c88825d0e23747629%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/920c1a_3a9b34afeb8f443c88825d0e23747629%7Emv2.png",
+    "path": "assets/dc6811d1b6093b90.png",
+    "bytes": 2980
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp/v1/fill/w_147,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/uvf.webp",
+    "path": "assets/e236f1e4a24abde1.webp",
+    "bytes": 1902
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp/v1/fit/w_1920,h_1442,q_90,enc_avif,quality_auto/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp",
+    "path": "assets/9c79849f27cd777d.webp",
+    "bytes": 145962
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp/v1/fit/w_2306,h_1731,q_90,enc_avif,quality_auto/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp",
+    "path": "assets/43fc14e962368f75.webp",
+    "bytes": 207792
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp/v1/fit/w_960,h_721,q_90,enc_avif,quality_auto/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp",
+    "path": "assets/70642b91e307cb7b.webp",
+    "bytes": 37414
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_8f074c5dd69e4430941e4a08dcf87475%7Emv2.png/v1/fit/w_2500,h_1330,al_c/920c1a_8f074c5dd69e4430941e4a08dcf87475%7Emv2.png",
+    "path": "assets/4ee7833a36d3a574.png",
+    "bytes": 897701
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_b0efd92475c54cd894a0259c42b3258f~mv2.png/v1/fill/w_82,h_109,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/Projekt%20bez%20nazwy-8.png",
+    "path": "assets/f37573ca281cec71.png",
+    "bytes": 12337
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp/v1/fill/w_147,h_181,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/xray-zaznaczony-numer.webp",
+    "path": "assets/ad401b4a363bb0b0.webp",
+    "bytes": 958
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp/v1/fit/w_1920,h_1442,q_90,enc_avif,quality_auto/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp",
+    "path": "assets/15aa2ee348d731f9.webp",
+    "bytes": 105098
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp/v1/fit/w_2880,h_2163,q_90,enc_avif,quality_auto/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp",
+    "path": "assets/f02888847aa8a263.webp",
+    "bytes": 263604
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp/v1/fit/w_3840,h_2884,q_90,enc_avif,quality_auto/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp",
+    "path": "assets/ab6f9adcdc96290f.webp",
+    "bytes": 445004
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp/v1/fit/w_4800,h_3605,q_90,enc_avif,quality_auto/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp",
+    "path": "assets/273f01d53be915f2.webp",
+    "bytes": 634312
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp/v1/fit/w_960,h_721,q_90,enc_avif,quality_auto/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp",
+    "path": "assets/60b7abc407782c0c.webp",
+    "bytes": 20200
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_d41afd8ac5d14d06a6599aa88faabfba~mv2.png/v1/fill/w_49,h_60,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/EdWrightImages_-2292_tif.png",
+    "path": "assets/7e3f5032b06a7cac.png",
+    "bytes": 6455
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_d41afd8ac5d14d06a6599aa88faabfba~mv2.png/v1/fill/w_49,h_60,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/EdWrightImages_-2292_tif.png",
+    "path": "assets/ca6330b1ed862b64.png",
+    "bytes": 6455
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp/v1/fit/w_1920,h_1442,q_90,enc_avif,quality_auto/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp",
+    "path": "assets/4d11529b8eaffd3c.webp",
+    "bytes": 235470
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp/v1/fit/w_2847,h_2138,q_90,enc_avif,quality_auto/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp",
+    "path": "assets/737b6906e5267574.webp",
+    "bytes": 455366
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp/v1/fit/w_960,h_721,q_90,enc_avif,quality_auto/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp",
+    "path": "assets/ceb427969192c664.webp",
+    "bytes": 61850
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_1c32d89e18674e87a46348a221377a9f~mv2.png/v1/crop/x_23,y_0,w_2423,h_3023/fill/w_48,h_60,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/EdWrightImages_-2292_tif.png",
+    "path": "assets/0f01588046082f6d.png",
+    "bytes": 6286
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_1c32d89e18674e87a46348a221377a9f~mv2.png/v1/fill/w_49,h_60,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_auto/EdWrightImages_-2292_tif.png",
+    "path": "assets/d4b5b340c9ebfb16.png",
+    "bytes": 6432
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_5d5c2ed3e61d4a3a862394cfa87d9cc3~mv2.jpg/v1/crop/x_82,y_0,w_1736,h_2167/fill/w_138,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/uvf.jpg",
+    "path": "assets/1298f3408e5cce99.jpg",
+    "bytes": 5366
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_5d5c2ed3e61d4a3a862394cfa87d9cc3~mv2.jpg/v1/fill/w_147,h_173,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/uvf.jpg",
+    "path": "assets/dc0d20c792417c5b.jpg",
+    "bytes": 4399
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_f94167f74c80447d873c1b39ce0bba7c~mv2.jpg/v1/fill/w_147,h_181,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_auto/xray%20zaznaczony%20numer.jpg",
+    "path": "assets/cb331c3f4e9a98ed.jpg",
+    "bytes": 2768
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_f94167f74c80447d873c1b39ce0bba7c~mv2.jpg/v1/fill/w_147,h_181,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/xray%20zaznaczony%20numer.jpg",
+    "path": "assets/067c2c1f9d963694.jpg",
+    "bytes": 2768
+  },
+  {
+    "url": "https://static.wixstatic.com/shapes/11062b_9d0ed74495e543f5980ec82cd7cd7998.svg",
+    "path": "assets/192619e7ee11c37c.svg",
+    "bytes": 495
+  },
+  {
+    "url": "https://static.wixstatic.com/shapes/1d3a0b_97d72ad4c8dc4903bfb02b2baa7763ae.svg",
+    "path": "assets/292d62639a56a67f.svg",
+    "bytes": 347
+  },
+  {
+    "url": "https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js",
+    "path": "assets/917f946f955e68ee.js",
+    "bytes": 11635
+  },
+  {
+    "url": "https://www.thecaravaggio.com/_files/ugd/920c1a_e9eadc607fe346b58381bdea937b65ae.pdf",
+    "path": "assets/8df533350147f6cf.pdf",
+    "bytes": 12420035
+  },
+  {
+    "url": "https://www.thecaravaggio.com/_partials/wix-thunderbolt/dist/clientWorker.662e0928.bundle.min.js",
+    "path": "assets/b564764be22b361f.js",
+    "bytes": 668214
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_1c32d89e18674e87a46348a221377a9f~mv2.png/v1/fill/w_49,h_60,al_c,q_85,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/EdWrightImages_-2292_tif.png",
+    "path": "assets/9af43c9010057200.png",
+    "bytes": 815
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_8f074c5dd69e4430941e4a08dcf87475~mv2.png/v1/fill/w_66,h_90,al_c,q_85,usm_0.66_1.00_0.01,blur_3,enc_avif,quality_auto/920c1a_8f074c5dd69e4430941e4a08dcf87475~mv2.png",
+    "path": "assets/a20bf56bfd966131.png",
+    "bytes": 629
+  },
+  {
+    "url": "https://www.thecaravaggio.com/_serverless/pro-gallery-css-v4-server/layoutCss?ver=2&id=comp-mpvibs9m6&items=3446_2470_3023%7C3332_2015_3023%7C3371_2015_3023%7C3738_4550_5612%7C3857_1843_2167&container=8062.3671875_1280_315.15625_720&options=layoutParams_cropRatio:1.3333333333333333%7ClayoutParams_structure_galleryRatio_value:0%7ClayoutParams_repeatingGroupTypes:%7ClayoutParams_gallerySpacing:0%7CgroupTypes:1%7CnumberOfImagesPerRow:5%7CcollageAmount:0.8%7CtextsVerticalPadding:0%7CtextsHorizontalPadding:0%7CcalculateTextBoxHeightMode:MANUAL%7CtargetItemSize:50%7CcubeRatio:1.3333333333333333%7CexternalInfoHeight:0%7CexternalInfoWidth:0%7CisRTL:false%7CisVertical:false%7CminItemSize:120%7CgroupSize:1%7CchooseBestGroup:true%7CcubeImages:true%7CcubeType:fill%7CsmartCrop:false%7CcollageDensity:1%7CimageMargin:10%7ChasThumbnails:false%7CgalleryThumbnailsAlignment:bottom%7CgridStyle:1%7CtitlePlacement:SHOW_ON_HOVER%7CarrowsSize:50%7CslideshowInfoSize:120%7CimageInfoType:NO_BACKGROUND%7CtextBoxHeight:0%7CscrollDirection:1%7CgalleryLayout:4%7CgallerySizeType:smart%7CgallerySize:50%7CcropOnlyFill:true%7CnumberOfImagesPerCol:1%7CgroupsPerStrip:0%7Cscatter:0%7CenableInfiniteScroll:true%7CthumbnailSpacings:5%7CarrowsPosition:0%7CthumbnailSize:120%7CcalculateTextBoxWidthMode:PERCENT%7CtextBoxWidthPercent:50%7CuseMaxDimensions:false%7CrotatingGroupTypes:%7CfixedColumns:0%7CrotatingCropRatios:%7CgallerySizePx:0%7CplaceGroupsLtr:false",
+    "path": "assets/5f3a7d5eade5f5f9",
+    "bytes": 5452
+  },
+  {
+    "url": "https://static.wixstatic.com/media/0da768_880a3209e3744cd0a96b66835a01b8c5.png/v1/crop/x_0,y_0,w_256,h_256,q_85,enc_auto/0da768_880a3209e3744cd0a96b66835a01b8c5.png",
+    "path": "assets/d9bc0c9f106634a1.png",
+    "bytes": 26639
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_d41afd8ac5d14d06a6599aa88faabfba~mv2.png/v1/fill/w_2458,h_1894,fp_0.39_0.34,q_95,usm_0.66_1.00_0.01,enc_avif,quality_auto/EdWrightImages_-2292_tif.png",
+    "path": "assets/76c4ead7456ea00f.png",
+    "bytes": 564606
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_04f85be8a608495fa4edde825335acea~mv2.png",
+    "path": "assets/c5e2a4ca918c3c95.png",
+    "bytes": 15142564
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_6308725a82034ac281cfd70d9b3b1745~mv2.png",
+    "path": "assets/32c877ebccff5a14.png",
+    "bytes": 12891107
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_ee05b9a12e8f4e79b69620cd63d5ff5c~mv2.png",
+    "path": "assets/0685be26bbf3c14a.png",
+    "bytes": 13657174
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_5d5c2ed3e61d4a3a862394cfa87d9cc3~mv2.jpg",
+    "path": "assets/e0788182efd12c9d.jpg",
+    "bytes": 2478979
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_f94167f74c80447d873c1b39ce0bba7c~mv2.jpg",
+    "path": "assets/11cd5053df965e7c.jpg",
+    "bytes": 7184660
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_8f074c5dd69e4430941e4a08dcf87475~mv2.png/v1/fill/w_925,h_1166,al_c,q_90,enc_avif,quality_auto/920c1a_8f074c5dd69e4430941e4a08dcf87475~mv2.png",
+    "path": "assets/1cfc7c1d575c0c3a.png",
+    "bytes": 29853
+  },
+  {
+    "url": "inline-svg:b4de1dc32f7d93c3",
+    "path": "assets/b4de1dc32f7d93c3.svg",
+    "bytes": 778
+  },
+  {
+    "url": "inline-svg:025a15321b9785c6",
+    "path": "assets/025a15321b9785c6.svg",
+    "bytes": 116
+  },
+  {
+    "url": "inline-svg:2aa8e2f7487d9937",
+    "path": "assets/2aa8e2f7487d9937.svg",
+    "bytes": 116
+  },
+  {
+    "url": "inline-svg:c964d4fbfb0a82cd",
+    "path": "assets/c964d4fbfb0a82cd.svg",
+    "bytes": 119
+  },
+  {
+    "url": "inline-svg:5dcf6fe7a52f5e3a",
+    "path": "assets/5dcf6fe7a52f5e3a.svg",
+    "bytes": 116
+  },
+  {
+    "url": "inline-svg:5d14e420524cd5ea",
+    "path": "assets/5d14e420524cd5ea.svg",
+    "bytes": 363
+  },
+  {
+    "url": "inline-svg:d36411fadca4cf2c",
+    "path": "assets/d36411fadca4cf2c.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:979df77f077e74de",
+    "path": "assets/979df77f077e74de.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:72b9f405e01e7158",
+    "path": "assets/72b9f405e01e7158.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:183a45ec4b25c0fd",
+    "path": "assets/183a45ec4b25c0fd.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:e93a76c6f1663ce2",
+    "path": "assets/e93a76c6f1663ce2.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:009ae9939a9321c4",
+    "path": "assets/009ae9939a9321c4.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:5b2bb7ff2472948e",
+    "path": "assets/5b2bb7ff2472948e.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:2d529357e291a439",
+    "path": "assets/2d529357e291a439.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:bd8b59ec0548b2ba",
+    "path": "assets/bd8b59ec0548b2ba.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:7761e8466034e965",
+    "path": "assets/7761e8466034e965.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:eb775171c9cde9f3",
+    "path": "assets/eb775171c9cde9f3.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:833777bce8ccf223",
+    "path": "assets/833777bce8ccf223.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:d8c3634798595332",
+    "path": "assets/d8c3634798595332.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:b75e9abd76e141de",
+    "path": "assets/b75e9abd76e141de.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:6baaad8f22f3738e",
+    "path": "assets/6baaad8f22f3738e.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:dd2b3044c2741b10",
+    "path": "assets/dd2b3044c2741b10.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:ebf2e3039314d88c",
+    "path": "assets/ebf2e3039314d88c.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:9c879563521ef3b3",
+    "path": "assets/9c879563521ef3b3.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:130de33827346efe",
+    "path": "assets/130de33827346efe.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:79e793f7afd8c3de",
+    "path": "assets/79e793f7afd8c3de.svg",
+    "bytes": 559
+  },
+  {
+    "url": "inline-svg:3f546044c452eea5",
+    "path": "assets/3f546044c452eea5.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:22f030c6729099fe",
+    "path": "assets/22f030c6729099fe.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:76ec49b72d2562d7",
+    "path": "assets/76ec49b72d2562d7.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:c15597eb8c60ef9e",
+    "path": "assets/c15597eb8c60ef9e.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:de6ddc6a58064b17",
+    "path": "assets/de6ddc6a58064b17.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:0cd10d1aee36c3f7",
+    "path": "assets/0cd10d1aee36c3f7.svg",
+    "bytes": 996
+  },
+  {
+    "url": "inline-svg:f4beef86145e880a",
+    "path": "assets/f4beef86145e880a.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:f838cfe446c4c2bd",
+    "path": "assets/f838cfe446c4c2bd.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:91f511358817dbe5",
+    "path": "assets/91f511358817dbe5.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:90416973cdf03f8e",
+    "path": "assets/90416973cdf03f8e.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:303b0e55f6ff9f7b",
+    "path": "assets/303b0e55f6ff9f7b.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:a29dc9b3cbb399fb",
+    "path": "assets/a29dc9b3cbb399fb.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:05917cf4dfc20d44",
+    "path": "assets/05917cf4dfc20d44.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:836dabb24d775bbc",
+    "path": "assets/836dabb24d775bbc.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:1d08297eb16800f7",
+    "path": "assets/1d08297eb16800f7.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:1692dd89e8cba342",
+    "path": "assets/1692dd89e8cba342.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:afcc57576e248afc",
+    "path": "assets/afcc57576e248afc.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:9752fa0ae2f89e37",
+    "path": "assets/9752fa0ae2f89e37.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:01800c8f72bcdcba",
+    "path": "assets/01800c8f72bcdcba.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:6a5ba5de0b6878d7",
+    "path": "assets/6a5ba5de0b6878d7.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:f8edfc0644167502",
+    "path": "assets/f8edfc0644167502.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:a3e6745bfd97db65",
+    "path": "assets/a3e6745bfd97db65.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:ecbc63f4d44670d4",
+    "path": "assets/ecbc63f4d44670d4.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:d3ff7029278c6f90",
+    "path": "assets/d3ff7029278c6f90.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:ab3cc19838c49308",
+    "path": "assets/ab3cc19838c49308.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:750b6f164817202c",
+    "path": "assets/750b6f164817202c.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:ea2ef54e42a3b723",
+    "path": "assets/ea2ef54e42a3b723.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:128da3322731cd98",
+    "path": "assets/128da3322731cd98.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:cb23d7f4d6205ffb",
+    "path": "assets/cb23d7f4d6205ffb.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:342445f5fb74915c",
+    "path": "assets/342445f5fb74915c.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:25811a74d3b9a4f6",
+    "path": "assets/25811a74d3b9a4f6.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:67247b8eb05ce166",
+    "path": "assets/67247b8eb05ce166.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:8b3c0b721efc1f58",
+    "path": "assets/8b3c0b721efc1f58.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:e04800360226c5ff",
+    "path": "assets/e04800360226c5ff.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:c2e8878328e1c1fd",
+    "path": "assets/c2e8878328e1c1fd.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:12eed68ab6699adf",
+    "path": "assets/12eed68ab6699adf.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:41991b6334f8b46f",
+    "path": "assets/41991b6334f8b46f.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:bfd915abe9f75c5f",
+    "path": "assets/bfd915abe9f75c5f.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:9038a065fad544fe",
+    "path": "assets/9038a065fad544fe.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:c92ba8cc68c0867f",
+    "path": "assets/c92ba8cc68c0867f.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:1a66f8fd9a3073d3",
+    "path": "assets/1a66f8fd9a3073d3.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:89ba3d005630707d",
+    "path": "assets/89ba3d005630707d.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:bf66578f163caab0",
+    "path": "assets/bf66578f163caab0.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:065bf12e54eb6b19",
+    "path": "assets/065bf12e54eb6b19.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:726c7481ecfc185a",
+    "path": "assets/726c7481ecfc185a.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:71e87f46665909f8",
+    "path": "assets/71e87f46665909f8.svg",
+    "bytes": 176
+  },
+  {
+    "url": "inline-svg:36e4ce0a529aa397",
+    "path": "assets/36e4ce0a529aa397.svg",
+    "bytes": 753
+  },
+  {
+    "url": "inline-svg:7c7202b59277bc94",
+    "path": "assets/7c7202b59277bc94.svg",
+    "bytes": 395
+  },
+  {
+    "url": "inline-svg:9909c13fb6b1e823",
+    "path": "assets/9909c13fb6b1e823.svg",
+    "bytes": 403
+  },
+  {
+    "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=600&display=swap",
+    "error": "curl: (56) The requested URL returned error: 400"
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/htmlparser2-xml.4f17eecc.bundle.min.js",
+    "path": "assets/af7edeaa4029fd55.js",
+    "bytes": 50720
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[Container_ResponsiveBox].55b37fe0.bundle.min.js",
+    "path": "assets/cadc21af8e4eb458.js",
+    "bytes": 4062
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[FiveGridLine_SolidLineStudio].bf2cf0b5.bundle.min.js",
+    "path": "assets/651111d8677cc075.js",
+    "bytes": 2754
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[HeaderSection].f9760eb9.bundle.min.js",
+    "path": "assets/5055c32c4195b4d5.js",
+    "bytes": 19342
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[ImageX].65541ada.bundle.min.js",
+    "path": "assets/95d6ed28420c0f57.js",
+    "bytes": 12364
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[LinkBar_Responsive].2661e0e4.bundle.min.js",
+    "path": "assets/8351997c4faebc66.js",
+    "bytes": 10967
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[MenuContainer_Responsive].23316a4c.bundle.min.js",
+    "path": "assets/991f02fb1d7f5570.js",
+    "bytes": 5853
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[PageSections].66f3b3d5.bundle.min.js",
+    "path": "assets/01eb872baae08c66.js",
+    "bytes": 2154
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[RefComponent].33152207.bundle.min.js",
+    "path": "assets/d5b31a9f20997498.js",
+    "bytes": 2322
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[Section].95c5adc8.bundle.min.js",
+    "path": "assets/548d3c67b31ee8df.js",
+    "bytes": 16298
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[SkipToContentButton].d886e6d7.bundle.min.js",
+    "path": "assets/fd3cc0ac7e4242ff.js",
+    "bytes": 2151
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[StylableButton_Default].773a433c.bundle.min.js",
+    "path": "assets/5dd2b743d5e56ea6.js",
+    "bytes": 16396
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[TextMarquee].fe7d30fc.bundle.min.js",
+    "path": "assets/a078ebd5513dc72f.js",
+    "bytes": 10061
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt[VectorImage_VectorButton].9ca56ab4.bundle.min.js",
+    "path": "assets/dbeb563f281eeb3d.js",
+    "bytes": 9111
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_bootstrap-responsive.1bfc1371.bundle.min.js",
+    "path": "assets/27c5847de6aa3b77.js",
+    "bytes": 24564
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_bootstrap.52f92e83.bundle.min.js",
+    "path": "assets/2feaea9b26f49d88.js",
+    "bytes": 44071
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_menu.96085a48.bundle.min.js",
+    "path": "assets/276383f3d5893f85.js",
+    "bytes": 123474
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/rb_wixui.thunderbolt_mobile.2658b124.bundle.min.js",
+    "path": "assets/6372764392b1ebf6.js",
+    "bytes": 31928
+  },
+  {
+    "url": "https://static.parastorage.com/services/editor-elements-library/dist/thunderbolt/wix-image-kit.05106181.bundle.min.js",
+    "path": "assets/5fbd2a860bf4c192.js",
+    "bytes": 25148
+  },
+  {
+    "url": "https://static.parastorage.com/services/pro-gallery-tpa/1.1531.0/WixProGalleryViewerWidget.bundle.min.js",
+    "path": "assets/a96c000e7e74895a.js",
+    "bytes": 1117081
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/7127.130b4e34.chunk.min.js",
+    "path": "assets/80d05bd72d4d6799.js",
+    "bytes": 6821
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/GhostComp.56f311d7.chunk.min.js",
+    "path": "assets/b9e53093d585aa8b.js",
+    "bytes": 549
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/accessibility.e4888b8e.chunk.min.js",
+    "path": "assets/1db205bc4336df8a.js",
+    "bytes": 1123
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/accessibilityBrowserZoom.f43a588a.chunk.min.js",
+    "path": "assets/c354ce9523340f64.js",
+    "bytes": 6355
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/animationsWixCodeSdk.9f05a568.chunk.min.js",
+    "path": "assets/59cc378c8cc141d5.js",
+    "bytes": 1007
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/appMonitoring.57da5205.chunk.min.js",
+    "path": "assets/9ddca302d4d274c7.js",
+    "bytes": 14845
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/assetsLoader.664431f5.chunk.min.js",
+    "path": "assets/590afca014cbcb5a.js",
+    "bytes": 6311
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/businessLogger.b3c0de71.chunk.min.js",
+    "path": "assets/2faa501dbb8322ff.js",
+    "bytes": 543
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/consentPolicy.a987db6a.chunk.min.js",
+    "path": "assets/b6bc88f907c8a8b1.js",
+    "bytes": 540
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/customCss.92545dcf.chunk.min.js",
+    "path": "assets/766b6fd261e3c45e.js",
+    "bytes": 40440
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/cyclicTabbing.a0ad2cb2.chunk.min.js",
+    "path": "assets/194033ba565008dd.js",
+    "bytes": 767
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/domSelectors.1b55da8c.chunk.min.js",
+    "path": "assets/e0086abb89da6c45.js",
+    "bytes": 1458
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/domStore.ece10f59.chunk.min.js",
+    "path": "assets/e971077253b652f4.js",
+    "bytes": 32161
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/environment.7ac3f543.chunk.min.js",
+    "path": "assets/427ddd9c9ec6f573.js",
+    "bytes": 536
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/environmentService.676d132e.chunk.min.js",
+    "path": "assets/3086504faaa03f23.js",
+    "bytes": 2939
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/environmentWixCodeSdk.566c4d0f.chunk.min.js",
+    "path": "assets/d798b9ce9d42d20c.js",
+    "bytes": 503
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/externalServices.a9aa058b.chunk.min.js",
+    "path": "assets/10e9b62a6090b95a.js",
+    "bytes": 2642
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/imagePlaceholder.3c11dd4b.chunk.min.js",
+    "path": "assets/4c81a13c8fe90eb0.js",
+    "bytes": 754
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/mobileFullScreen.26016b15.chunk.min.js",
+    "path": "assets/e192078d587bf525.js",
+    "bytes": 910
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/mpaNavigation.bd7e02b4.chunk.min.js",
+    "path": "assets/97689b88005dc3a0.js",
+    "bytes": 7513
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/ooi.35dd0965.chunk.min.js",
+    "path": "assets/00848310c7604103.js",
+    "bytes": 449
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/panorama.a27650b3.chunk.min.js",
+    "path": "assets/030563f4ffc2660e.js",
+    "bytes": 1020
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/platformPubsub.d41c28b7.chunk.min.js",
+    "path": "assets/65ec23ddbcd0c002.js",
+    "bytes": 2023
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/protectedPages.6b5d83a2.chunk.min.js",
+    "path": "assets/615682fb5fc6472a.js",
+    "bytes": 4679
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/reporter-api.71a5ef2b.chunk.min.js",
+    "path": "assets/00d5d103995df843.js",
+    "bytes": 37168
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/siteMembers.e6468e98.chunk.min.js",
+    "path": "assets/d2adab1dc0b2fb80.js",
+    "bytes": 68474
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/siteMembersWixCodeSdk.6a6c6afd.chunk.min.js",
+    "path": "assets/4c60bcc454fe99da.js",
+    "bytes": 32289
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/siteScrollBlocker.d7ac0282.chunk.min.js",
+    "path": "assets/853ec373159f03c8.js",
+    "bytes": 479
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/speculationRules.851746fd.chunk.min.js",
+    "path": "assets/9ab0e603facc8264.js",
+    "bytes": 1793
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/ssrCache.f7fb72e6.chunk.min.js",
+    "path": "assets/a9cd1c37efd633f9.js",
+    "bytes": 1970
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/svgLoader.eaac3f9d.chunk.min.js",
+    "path": "assets/e596ee591dc311f8.js",
+    "bytes": 34372
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/tslib.inline.cdbfecc7.chunk.min.js",
+    "path": "assets/b2c69ae03be5c50c.js",
+    "bytes": 11256
+  },
+  {
+    "url": "https://static.parastorage.com/services/wix-thunderbolt/dist/usedPlatformApis.2fac58dc.chunk.min.js",
+    "path": "assets/b95aa194bb309214.js",
+    "bytes": 691
+  },
+  {
+    "url": "https://static.parastorage.com/unpkg/requirejs-bolt@2.3.6/requirejs.min.js",
+    "path": "assets/32c0843a2813b814.js",
+    "bytes": 17493
+  }
+]
