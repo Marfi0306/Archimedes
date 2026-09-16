@@ -1362,5 +1362,30 @@
     "url": "https://static.parastorage.com/unpkg/requirejs-bolt@2.3.6/requirejs.min.js",
     "path": "assets/32c0843a2813b814.js",
     "bytes": 17493
+  },
+  {
+    "url": "https://static.wixstatic.com/media/de1bc2_1c32d89e18674e87a46348a221377a9f~mv2.png/v1/fit/w_1200,h_1500,q_85,enc_auto/de1bc2_1c32d89e18674e87a46348a221377a9f~mv2.png",
+    "path": "assets/painting-full.png",
+    "bytes": 3654577
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_1b5a44bdafea4f3894b46675354f13bd~mv2.png/v1/fit/w_780,h_750,q_85,enc_auto/920c1a_1b5a44bdafea4f3894b46675354f13bd~mv2.png",
+    "path": "assets/lapucci-full.png",
+    "bytes": 111059
+  },
+  {
+    "url": "https://static.wixstatic.com/media/920c1a_b0efd92475c54cd894a0259c42b3258f~mv2.png/v1/fit/w_820,h_1090,q_85,enc_auto/920c1a_b0efd92475c54cd894a0259c42b3258f~mv2.png",
+    "path": "assets/gregori-full.png",
+    "bytes": 771731
+  },
+  {
+    "url": "https://static.wixstatic.com/media/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png/v1/fit/w_200,h_200,q_85,enc_auto/11062b_084cbbff6ae446c1b03dc3637193e77a~mv2.png",
+    "path": "assets/instagram.png",
+    "bytes": 10437
+  },
+  {
+    "url": "https://static.wixstatic.com/media/11062b_6fc54c8957474101ba6e80b01907ae50~mv2.png/v1/fit/w_200,h_200,q_85,enc_auto/11062b_6fc54c8957474101ba6e80b01907ae50~mv2.png",
+    "path": "assets/youtube.png",
+    "bytes": 6746
   }
 ]
