@@ -165,30 +165,46 @@
     return variants[0];
   };
   const clamp = value => Math.max(0, Math.min(1, value));
-  const keyframesFor = effect => {
+  const keyframesFor = (effect, element) => {
     const n = effect.namedEffect;
     const out = n.range === 'out';
     switch (n.type) {
-      case 'TiltIn': return [
-        {opacity:0, transform:`perspective(1000px) rotateY(${n.direction === 'left' ? -18 : 18}deg) translateX(${n.direction === 'left' ? -35 : 35}px)`},
-        {opacity:1, transform:'perspective(1000px) rotateY(0deg) translateX(0px)'}
-      ];
-      case 'FadeScroll': return [{opacity:out ? 1 : (n.opacity ?? 0)}, {opacity:out ? (n.opacity ?? 0) : 1}];
-      case 'ShrinkScroll': return [{transform:`scale(${n.scale ?? 1.7})`}, {transform:'scale(1)'}];
-      case 'TurnScroll': return [
-        {transform:'rotate(0deg) scale(1)'},
-        {transform:`rotate(${n.spin === 'clockwise' ? 30 : -30}deg) scale(${n.scale ?? 1})`}
-      ];
+      case 'TiltIn': {
+        const depth = element.getBoundingClientRect().height / 2;
+        const pivot = `50% 50% -${depth}px`;
+        return {target:element, tracks:[
+          {frames:[{opacity:0},{opacity:1}], duration:(effect.duration ?? 1200) * .2, easing:'cubic-bezier(.215,.61,.355,1)'},
+          {frames:[
+            {transform:`perspective(800px) rotateX(-90deg) rotateZ(${n.direction === 'left' ? 30 : -30}deg)`, transformOrigin:pivot},
+            {transform:'perspective(800px) rotateX(0deg) rotateZ(0deg)', transformOrigin:pivot}
+          ], duration:effect.duration ?? 1200, easing:'cubic-bezier(.215,.61,.355,1)'},
+          {frames:[{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0 0 0 0)'}], duration:(effect.duration ?? 1200) * .8, easing:'cubic-bezier(.215,.61,.355,1)'}
+        ]};
+      }
+      case 'FadeScroll': return {target:element, tracks:[{frames:[{opacity:out ? 1 : (n.opacity ?? 0)}, {opacity:out ? (n.opacity ?? 0) : 1}]}]};
+      case 'ShrinkScroll': return {target:element, tracks:[{frames:[{transform:`scale(${n.scale ?? 1.2})`}, {transform:'scale(1)'}], easing:'cubic-bezier(.47,0,.745,.715)'}]};
+      case 'TurnScroll': {
+        const bounds = element.getBoundingClientRect();
+        const offscreenX = n.direction === 'left' ? innerWidth - bounds.left : -bounds.left - bounds.width;
+        const rotation = n.spin === 'clockwise' ? 45 : -45;
+        return {target:element, tracks:[{frames:[
+          {transform:'translateX(0px) scale(1) rotate(0deg)'},
+          {transform:`translateX(${offscreenX}px) scale(${n.scale ?? 1}) rotate(${rotation}deg)`}
+        ]}]};
+      }
       case 'MoveScroll': {
-        const angle = (n.angle ?? 0) * Math.PI / 180;
+        // Wix measures angles from the vertical axis.
+        const angle = ((n.angle ?? 210) - 90) * Math.PI / 180;
         const distance = n.distance?.value ?? 80;
         const moved = `translate(${Math.round(Math.cos(angle) * distance)}px,${Math.round(Math.sin(angle) * distance)}px)`;
-        return [{transform:out ? 'translate(0,0)' : moved}, {transform:out ? moved : 'translate(0,0)'}];
+        return {target:element, tracks:[{frames:[{transform:out ? 'translate(0,0)' : moved}, {transform:out ? moved : 'translate(0,0)'}]}]};
       }
-      case 'ImageParallax': return [
-        {transform:'translateY(-7%) scale(1.15)'},
-        {transform:'translateY(7%) scale(1.15)'}
-      ];
+      case 'ImageParallax': {
+        const media = element.querySelector('[data-motion-part~="BG_MEDIA"]');
+        if (!media) return null;
+        const travel = -100 * ((n.speed ?? 1.5) - 1) / (n.speed ?? 1.5);
+        return {target:media, tracks:[{frames:[{transform:`translateY(${travel}%)`},{transform:'translateY(0%)'}]}]};
+      }
       default: return null;
     }
   };
@@ -200,23 +216,24 @@
     return y;
   };
   const updateMotion = () => {
-    for (const {source, effect, animation} of scrubs) {
+    for (const {source, effect, animations} of scrubs) {
       const cover = (scrollY + innerHeight - layoutTop(source)) / (innerHeight + source.offsetHeight);
       const start = (effect.startOffset?.offset?.value ?? 0) / 100;
       const end = (effect.endOffset?.offset?.value ?? 100) / 100;
-      animation.currentTime = clamp((cover - start) / (end - start || 1)) * 1000;
+      const currentTime = clamp((cover - start) / (end - start || 1)) * 1000;
+      animations.forEach(animation => { animation.currentTime = currentTime; });
     }
   };
   const configureMotion = () => {
     observer?.disconnect();
-    [...scrubs, ...timed].forEach(item => item.animation.cancel());
+    [...scrubs, ...timed].forEach(item => item.animations.forEach(animation => animation.cancel()));
     scrubs = []; timed = [];
     if (!motion?.triggers || reducedMotion.matches) return;
     observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
         for (const item of timed.filter(item => item.source === entry.target)) {
-          item.animation.play();
+          item.animations.forEach(animation => animation.play());
           played.add(item.key);
         }
         observer.unobserve(entry.target);
@@ -240,20 +257,21 @@
               seen.add(key);
               const effect = pickEffect(motion.effects[targetId]?.[effectId]);
               if (!effect?.namedEffect) continue;
-              const frames = keyframesFor(effect);
-              if (!frames) continue;
-              const animatedElement = effect.namedEffect.type === 'ImageParallax'
-                ? (element.querySelector('img') || element) : element;
-              const animation = animatedElement.animate(frames, {
-                duration:event === 'view-progress' ? 1000 : (effect.duration ?? 1200),
-                delay:event === 'view-progress' ? 0 : (effect.delay ?? 0),
-                easing:event === 'view-progress' ? 'linear' : 'cubic-bezier(.22,.61,.36,1)',
-                fill:event === 'view-progress' ? 'both' : 'backwards'
+              const definition = keyframesFor(effect, element);
+              if (!definition) continue;
+              const animations = definition.tracks.map(track => {
+                const animation = definition.target.animate(track.frames, {
+                  duration:event === 'view-progress' ? 1000 : (track.duration ?? effect.duration ?? 1200),
+                  delay:event === 'view-progress' ? 0 : (effect.delay ?? 0),
+                  easing:track.easing ?? 'linear',
+                  fill:event === 'view-progress' ? 'both' : 'backwards'
+                });
+                animation.pause();
+                return animation;
               });
-              animation.pause();
-              if (event === 'view-progress') scrubs.push({source, effect, animation});
-              else if (!played.has(key)) { timed.push({source, animation, key}); observer.observe(source); }
-              else animation.cancel();
+              if (event === 'view-progress') scrubs.push({source, effect, animations});
+              else if (!played.has(key)) { timed.push({source, animations, key}); observer.observe(source); }
+              else animations.forEach(animation => animation.cancel());
             }
           }
         }
@@ -275,10 +293,27 @@
   });
   reducedMotion.addEventListener('change', configureMotion);
   configureMotion();
-  const marquee=$('[data-marquee-animation]'), toggle=$('[aria-label="Play Marquee"]');
-  if(marquee && toggle){
-    const animation=marquee.animate([{transform:'translateX(0)'},{transform:'translateX(-50%)'}],{duration:30000,iterations:Infinity,easing:'linear'});
-    let playing=true;toggle.setAttribute('aria-label','Pause Marquee');toggle.setAttribute('aria-pressed','true');
-    toggle.addEventListener('click',()=>{playing=!playing;playing?animation.play():animation.pause();toggle.setAttribute('aria-label',playing?'Pause Marquee':'Play Marquee');toggle.setAttribute('aria-pressed',String(playing))});
+  if (window.Lenis && !reducedMotion.matches) {
+    const lenis = new window.Lenis({lerp:.27, wheelMultiplier:.9});
+    const frame = time => { lenis.raf(time); requestAnimationFrame(frame); };
+    requestAnimationFrame(frame);
+  }
+  const marquee = $('.wixui-text-marquee .mwhagG');
+  const toggle = $('.wixui-text-marquee [aria-label="Play Marquee"]');
+  if (marquee && toggle && !reducedMotion.matches) {
+    const animation = marquee.animate(
+      [{transform:'translateX(0)'},{transform:'translateX(-50%)'}],
+      {duration:40000,iterations:Infinity,easing:'linear'}
+    );
+    let playing = true;
+    const updateToggle = () => {
+      toggle.setAttribute('aria-label', playing ? 'Pause Marquee' : 'Play Marquee');
+      toggle.setAttribute('aria-pressed', String(playing));
+      playing ? animation.play() : animation.pause();
+    };
+    toggle.addEventListener('click', () => { playing = !playing; updateToggle(); });
+    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerenter', () => animation.pause());
+    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerleave', () => { if (playing) animation.play(); });
+    updateToggle();
   }
 })();
