@@ -63,11 +63,11 @@
   const mobileGallery = $('caravaggio-gallery');
   const desktopGallery = $('#gallery-wrapper-comp-mpvibs9m6');
   const mobileSources = [
-    ['assets/c5e2a4ca918c3c95.png','Archimedes, full painting'],
-    ['assets/32c877ebccff5a14.png','Detail of Archimedes'],
-    ['assets/0685be26bbf3c14a.png','Close-up of Archimedes'],
-    ['assets/11cd5053df965e7c.jpg','X-ray of the painting'],
-    ['assets/e0788182efd12c9d.jpg','Ultraviolet examination']
+    ['assets/b619befecf88c520.webp','Archimedes, full painting'],
+    ['assets/3dae69f032214ed3.webp','Detail of Archimedes'],
+    ['assets/ceb427969192c664.webp','Close-up of Archimedes'],
+    ['assets/60b7abc407782c0c.webp','X-ray of the painting'],
+    ['assets/70642b91e307cb7b.webp','Ultraviolet examination']
   ];
   const desktopSources = [
     ['assets/b619befecf88c520.webp','Archimedes, full painting'],
@@ -98,7 +98,7 @@
   });
   const makeGallery = (root, sources, mode) => {
     if (!root) return;
-    root.innerHTML = `<div class="standalone-gallery standalone-gallery--${mode}" role="region" aria-label="Artwork gallery" tabindex="0"><div class="standalone-gallery__viewport"><div class="standalone-gallery__track">${sources.map(([src,alt])=>`<div class="standalone-gallery__slide"><img src="${src}" alt="${alt}" loading="lazy" draggable="false"></div>`).join('')}</div></div><button type="button" class="standalone-gallery__nav standalone-gallery__prev" aria-label="Previous image">‹</button><button type="button" class="standalone-gallery__nav standalone-gallery__next" aria-label="Next image">›</button></div>`;
+    root.innerHTML = `<div class="standalone-gallery standalone-gallery--${mode}" role="region" aria-label="Artwork gallery" tabindex="0"><div class="standalone-gallery__viewport"><div class="standalone-gallery__track">${sources.map(([src,alt])=>`<div class="standalone-gallery__slide"><img src="${src}" alt="${alt}" loading="${(mode === 'mobile') === (innerWidth <= 750) ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div>`).join('')}</div></div><button type="button" class="standalone-gallery__nav standalone-gallery__prev" aria-label="Previous image">‹</button><button type="button" class="standalone-gallery__nav standalone-gallery__next" aria-label="Next image">›</button></div>`;
     const gallery = $('.standalone-gallery', root);
     const viewport = $('.standalone-gallery__viewport', root);
     const track = $('.standalone-gallery__track', root);
@@ -171,12 +171,12 @@
     switch (n.type) {
       case 'TiltIn': {
         const depth = element.getBoundingClientRect().height / 2;
-        const pivot = `50% 50% -${depth}px`;
+        const pivot = "50% 50%";
         return {target:element, tracks:[
           {frames:[{opacity:0},{opacity:1}], duration:(effect.duration ?? 1200) * .2, easing:'cubic-bezier(.215,.61,.355,1)'},
           {frames:[
-            {transform:`perspective(800px) rotateX(-90deg) rotateZ(${n.direction === 'left' ? 30 : -30}deg)`, transformOrigin:pivot},
-            {transform:'perspective(800px) rotateX(0deg) rotateZ(0deg)', transformOrigin:pivot}
+            {transform:`perspective(800px) translateZ(-${depth}px) rotateX(-90deg) translateZ(${depth}px)`, transformOrigin:pivot},
+            {transform:`perspective(800px) translateZ(-${depth}px) rotateX(0deg) translateZ(${depth}px)`, transformOrigin:pivot}
           ], duration:effect.duration ?? 1200, easing:'cubic-bezier(.215,.61,.355,1)'},
           {frames:[{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0 0 0 0)'}], duration:(effect.duration ?? 1200) * .8, easing:'cubic-bezier(.215,.61,.355,1)'}
         ]};
@@ -208,6 +208,15 @@
       default: return null;
     }
   };
+  const examinationStacks = [
+    {section:document.getElementById('comp-lxu99cll'), ids:['comp-mpttwj7v','comp-mpttzafl','comp-mpttytua']},
+    {section:document.getElementById('comp-mpuix9j9'), ids:['comp-mpuj4f1g','comp-mpuj4f1i10','comp-mpuj4f1j19']}
+  ];
+  const examinationImageIds = new Set(examinationStacks.flatMap(stack => stack.ids));
+  examinationStacks.forEach(stack => {
+    stack.images = stack.ids.map(id => document.getElementById(id));
+    stack.images.forEach((image,index) => { if (image) image.style.zIndex = String(53-index); });
+  });
   let scrubs = [], timed = [], observer;
   const played = new Set();
   const layoutTop = element => {
@@ -216,6 +225,13 @@
     return y;
   };
   const updateMotion = () => {
+    for (const {section,images} of examinationStacks) {
+      if (!section || !section.offsetHeight) continue;
+      const progress = reducedMotion.matches ? 0 : clamp((scrollY-layoutTop(section))/section.offsetHeight);
+      images.forEach((image,index) => {
+        if (image) image.style.opacity = String(index === 2 ? 1 : 1-clamp(progress*3-index));
+      });
+    }
     for (const {source, effect, animations} of scrubs) {
       const cover = (scrollY + innerHeight - layoutTop(source)) / (innerHeight + source.offsetHeight);
       const start = (effect.startOffset?.offset?.value ?? 0) / 100;
@@ -247,7 +263,7 @@
         if (event !== 'view-progress' && event !== 'viewport-enter') continue;
         for (const [targetId, groups] of Object.entries(targets)) {
           const element = document.getElementById(targetId);
-          if (!element) continue;
+          if (!element || examinationImageIds.has(targetId)) continue;
           for (const group of groups) {
             if (!inRange(group.triggerBpRange)) continue;
             for (const reaction of group.reactions || []) {
@@ -257,7 +273,7 @@
               seen.add(key);
               const effect = pickEffect(motion.effects[targetId]?.[effectId]);
               if (!effect?.namedEffect) continue;
-              const definition = keyframesFor(effect, element);
+              let definition = keyframesFor(effect, element);
               if (!definition) continue;
               const createAnimations = () => definition.tracks.map(track => {
                 const animation = definition.target.animate(track.frames, {
@@ -275,7 +291,10 @@
                 // Observe the resting geometry before TiltIn clips and rotates it.
                 // Creating a paused entrance first can prevent intersection forever.
                 const item = {source, animations:[], key, start() {
-                  if (!this.animations.length) this.animations = createAnimations();
+                  if (!this.animations.length) {
+                    definition = keyframesFor(effect, element);
+                    this.animations = createAnimations();
+                  }
                 }};
                 timed.push(item);
                 observer.observe(source);
@@ -300,28 +319,37 @@
     else updateMotion();
   });
   reducedMotion.addEventListener('change', configureMotion);
-  configureMotion();
+  (document.fonts?.ready ?? Promise.resolve()).then(configureMotion);
   if (window.Lenis && !reducedMotion.matches) {
     const lenis = new window.Lenis({lerp:.27, wheelMultiplier:.9});
     const frame = time => { lenis.raf(time); requestAnimationFrame(frame); };
     requestAnimationFrame(frame);
+    const protectEmbeddedScroll = () => {
+      $$('iframe, [id*="chat"], [class*="chat"], .standalone-lightbox').forEach(element => {
+        if (element.hasAttribute('data-lenis-prevent')) return;
+        element.setAttribute('data-lenis-prevent','');
+        element.addEventListener('wheel', event => event.stopPropagation(), {passive:false});
+      });
+    };
+    protectEmbeddedScroll();
+    setInterval(protectEmbeddedScroll,1000);
   }
   const marquee = $('.wixui-text-marquee .mwhagG');
   const toggle = $('.wixui-text-marquee [aria-label="Play Marquee"]');
   if (marquee && toggle && !reducedMotion.matches) {
-    const animation = marquee.animate(
-      [{transform:'translateX(0)'},{transform:'translateX(-50%)'}],
+    const animations = [...marquee.children].map(copy => copy.animate(
+      [{transform:'translateX(0)'},{transform:'translateX(-100%)'}],
       {duration:40000,iterations:Infinity,easing:'linear'}
-    );
+    ));
     let playing = true;
     const updateToggle = () => {
       toggle.setAttribute('aria-label', playing ? 'Pause Marquee' : 'Play Marquee');
       toggle.setAttribute('aria-pressed', String(playing));
-      playing ? animation.play() : animation.pause();
+      animations.forEach(animation => playing ? animation.play() : animation.pause());
     };
     toggle.addEventListener('click', () => { playing = !playing; updateToggle(); });
-    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerenter', () => animation.pause());
-    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerleave', () => { if (playing) animation.play(); });
+    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerenter', () => animations.forEach(animation => animation.pause()));
+    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerleave', () => { if (playing) animations.forEach(animation => animation.play()); });
     updateToggle();
   }
 })();
