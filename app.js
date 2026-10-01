@@ -233,7 +233,7 @@
       for (const entry of entries) {
         if (!entry.isIntersecting) continue;
         for (const item of timed.filter(item => item.source === entry.target)) {
-          item.animations.forEach(animation => animation.play());
+          item.start();
           played.add(item.key);
         }
         observer.unobserve(entry.target);
@@ -259,19 +259,27 @@
               if (!effect?.namedEffect) continue;
               const definition = keyframesFor(effect, element);
               if (!definition) continue;
-              const animations = definition.tracks.map(track => {
+              const createAnimations = () => definition.tracks.map(track => {
                 const animation = definition.target.animate(track.frames, {
                   duration:event === 'view-progress' ? 1000 : (track.duration ?? effect.duration ?? 1200),
                   delay:event === 'view-progress' ? 0 : (effect.delay ?? 0),
                   easing:track.easing ?? 'linear',
                   fill:event === 'view-progress' ? 'both' : 'backwards'
                 });
-                animation.pause();
+                if (event === 'view-progress') animation.pause();
+                else animation.onfinish = () => animation.cancel();
                 return animation;
               });
-              if (event === 'view-progress') scrubs.push({source, effect, animations});
-              else if (!played.has(key)) { timed.push({source, animations, key}); observer.observe(source); }
-              else animations.forEach(animation => animation.cancel());
+              if (event === 'view-progress') scrubs.push({source, effect, animations:createAnimations()});
+              else if (!played.has(key)) {
+                // Observe the resting geometry before TiltIn clips and rotates it.
+                // Creating a paused entrance first can prevent intersection forever.
+                const item = {source, animations:[], key, start() {
+                  if (!this.animations.length) this.animations = createAnimations();
+                }};
+                timed.push(item);
+                observer.observe(source);
+              }
             }
           }
         }
