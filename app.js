@@ -259,6 +259,8 @@
   };
   const configureMotion = () => {
     observer?.disconnect();
+    document.documentElement.classList.add("motion-initialized");
+    $$("[data-entrance-pending]").forEach(element => element.removeAttribute("data-entrance-pending"));
     [...scrubs, ...timed].forEach(item => item.animations.forEach(animation => animation.cancel()));
     scrubs = []; timed = [];
     if (!motion?.triggers || reducedMotion.matches) return;
@@ -306,12 +308,14 @@
               });
               if (event === 'view-progress') scrubs.push({source, effect, animations:createAnimations(), progressSource:getComputedStyle(source).position === 'sticky' ? source.closest('.wixui-section') : null});
               else if (!played.has(key)) {
+                element.setAttribute("data-entrance-pending", "");
                 // Observe the resting geometry before TiltIn clips and rotates it.
                 // Creating a paused entrance first can prevent intersection forever.
                 const item = {source, animations:[], key, start() {
                   if (!this.animations.length) {
                     definition = keyframesFor(effect, element);
                     this.animations = createAnimations();
+                    element.removeAttribute("data-entrance-pending");
                   }
                 }};
                 timed.push(item);
