@@ -70,3 +70,7 @@ html.lenis, html.lenis body { height:auto; }
 /* Opacity preserves the resting intersection geometry while preventing pre-entry flashes. */
 .motion-ready [data-entrance-pending] { opacity:0; }
 #comp-kbgakxea_r_comp-mpufihke { display:none !important; }
+/* Equal space above and below the moving text. */
+#comp-ly0760d3.comp-ly0760d3-container { grid-template-rows:auto; padding-top:56px; padding-bottom:56px; min-height:0; }
+#comp-ly076tvb { margin-top:0; margin-bottom:0; align-self:center; }
+@media(max-width:750px) { #comp-ly0760d3.comp-ly0760d3-container { padding-top:32px; padding-bottom:32px; } }
