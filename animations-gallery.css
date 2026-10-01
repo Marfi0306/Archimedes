@@ -46,3 +46,21 @@ html.lenis, html.lenis body { height:auto; }
 .wixui-text-marquee [data-testid="marquee-unit"] { flex:0 0 auto; }
 .wixui-text-marquee [data-testid="marquee-item-text"],
 .wixui-text-marquee [data-testid="marquee-item-separator"] { flex:0 0 auto; }
+
+/* Solid, slightly shorter navigation. */
+#comp-kbgakxea_r_comp-kbgajy18 { --bg-gradient:none; --bg-overlay-color:#fefcf6; background:#fefcf6; }
+#comp-kbgakxea_r_comp-ly5n65gh { --backdrop-filter:none; backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
+#comp-kbgakxea_r_comp-kbgajy18 .comp-kbgakxea_r_comp-kbgajy18-container { grid-template-rows:minmax(46px,auto); }
+#comp-kbgakxea_r_comp-ly5n65gh .comp-kbgakxea_r_comp-ly5n65gh-container { min-height:46px; padding-top:0; padding-bottom:0; }
+/* Keep the entire sticky examination image inside a short viewport. */
+@media (min-width:751px) {
+  #comp-mpttytua, #comp-mpttzafl, #comp-mpttwj7v {
+    top:100px; width:min(37.15415%,calc((100svh - 140px)/1.22445)); max-height:calc(100svh - 140px);
+  }
+}
+#comp-mpttytua img, #comp-mpttzafl img, #comp-mpttwj7v img,
+#comp-mpuj4f1g img, #comp-mpuj4f1i10 img, #comp-mpuj4f1j19 img { object-fit:contain !important; }
+.wixui-button, .wixui-button *, .wixui-button :before, .wixui-button :after {
+  transition-duration:.65s !important;
+  --transition-duration:.65s;
+}
