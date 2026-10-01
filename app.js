@@ -2,6 +2,16 @@
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
+  for (const sectionId of ['comp-lxun76he','comp-mpuj9y3c']) {
+    const section = document.getElementById(sectionId);
+    section?.querySelectorAll('.wixui-image a').forEach(link => {
+      const imageWrapper = document.createElement('div');
+      imageWrapper.className = link.className;
+      imageWrapper.append(...link.childNodes);
+      link.replaceWith(imageWrapper);
+    });
+  }
+
   // Navigation links exported by Wix already carry local fragment targets.
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
     const target = $(a.getAttribute('href'));
@@ -170,15 +180,21 @@
     const out = n.range === 'out';
     switch (n.type) {
       case 'TiltIn': {
-        const depth = element.getBoundingClientRect().height / 2;
-        const pivot = "50% 50%";
+        // Match Wix's three tracks, including the additive clip rotation.
+        const depth = (parseFloat(getComputedStyle(element).getPropertyValue('--motion-height')) || 200) / 2;
+        const baseRotation = getComputedStyle(element).getPropertyValue('--comp-rotate-z') || '0deg';
+        const epsilon = .000001;
         return {target:element, tracks:[
-          {frames:[{opacity:0},{opacity:1}], duration:(effect.duration ?? 1200) * .2, easing:'cubic-bezier(.215,.61,.355,1)'},
+          {frames:[{opacity:0},{opacity:1}], duration:(effect.duration ?? 1200)*.2, easing:'cubic-bezier(.215,.61,.355,1)'},
           {frames:[
-            {transform:`perspective(800px) translateZ(-${depth}px) rotateX(-90deg) translateZ(${depth}px)`, transformOrigin:pivot},
-            {transform:`perspective(800px) translateZ(-${depth}px) rotateX(0deg) translateZ(${depth}px)`, transformOrigin:pivot}
+            {offset:0,transform:'perspective(800px)',easing:'step-end'},
+            {offset:epsilon,transform:`perspective(800px) translateZ(-${depth}px) rotateX(-90deg) translateZ(${depth}px) rotate(${baseRotation})`},
+            {transform:`perspective(800px) translateZ(-${depth}px) rotateX(0deg) translateZ(${depth}px) rotate(${baseRotation})`}
           ], duration:effect.duration ?? 1200, easing:'cubic-bezier(.215,.61,.355,1)'},
-          {frames:[{clipPath:'inset(100% 0 0 0)'},{clipPath:'inset(0 0 0 0)'}], duration:(effect.duration ?? 1200) * .8, easing:'cubic-bezier(.215,.61,.355,1)'}
+          {frames:[
+            {offset:epsilon,clipPath:'polygon(0% 0%,100% 0%,100% 0%,0% 0%)',transform:`rotateZ(${n.direction === 'right' ? -30 : 30}deg)`},
+            {clipPath:'polygon(0% 0%,100% 0%,100% 100%,0% 100%)',transform:'rotateZ(0deg)'}
+          ], composite:'add', duration:(effect.duration ?? 1200)*.8, easing:'cubic-bezier(.215,.61,.355,1)'}
         ]};
       }
       case 'FadeScroll': return {target:element, tracks:[{frames:[{opacity:out ? 1 : (n.opacity ?? 0)}, {opacity:out ? (n.opacity ?? 0) : 1}]}]};
@@ -232,8 +248,9 @@
         if (image) image.style.opacity = String(index === 2 ? 1 : 1-clamp(progress*3-index));
       });
     }
-    for (const {source, effect, animations} of scrubs) {
-      const cover = (scrollY + innerHeight - layoutTop(source)) / (innerHeight + source.offsetHeight);
+    for (const {source, effect, animations, progressSource} of scrubs) {
+      const geometry = progressSource || source;
+      const cover = (scrollY + innerHeight - layoutTop(geometry)) / (innerHeight + geometry.offsetHeight);
       const start = (effect.startOffset?.offset?.value ?? 0) / 100;
       const end = (effect.endOffset?.offset?.value ?? 100) / 100;
       const currentTime = clamp((cover - start) / (end - start || 1)) * 1000;
@@ -280,13 +297,14 @@
                   duration:event === 'view-progress' ? 1000 : (track.duration ?? effect.duration ?? 1200),
                   delay:event === 'view-progress' ? 0 : (effect.delay ?? 0),
                   easing:track.easing ?? 'linear',
+                  composite:track.composite ?? 'replace',
                   fill:event === 'view-progress' ? 'both' : 'backwards'
                 });
                 if (event === 'view-progress') animation.pause();
                 else animation.onfinish = () => animation.cancel();
                 return animation;
               });
-              if (event === 'view-progress') scrubs.push({source, effect, animations:createAnimations()});
+              if (event === 'view-progress') scrubs.push({source, effect, animations:createAnimations(), progressSource:getComputedStyle(source).position === 'sticky' ? source.closest('.wixui-section') : null});
               else if (!played.has(key)) {
                 // Observe the resting geometry before TiltIn clips and rotates it.
                 // Creating a paused entrance first can prevent intersection forever.
@@ -337,19 +355,50 @@
   const marquee = $('.wixui-text-marquee .mwhagG');
   const toggle = $('.wixui-text-marquee [aria-label="Play Marquee"]');
   if (marquee && toggle && !reducedMotion.matches) {
-    const animations = [...marquee.children].map(copy => copy.animate(
-      [{transform:'translateX(0)'},{transform:'translateX(-100%)'}],
-      {duration:40000,iterations:Infinity,easing:'linear'}
-    ));
-    let playing = true;
-    const updateToggle = () => {
-      toggle.setAttribute('aria-label', playing ? 'Pause Marquee' : 'Play Marquee');
-      toggle.setAttribute('aria-pressed', String(playing));
-      animations.forEach(animation => playing ? animation.play() : animation.pause());
-    };
-    toggle.addEventListener('click', () => { playing = !playing; updateToggle(); });
-    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerenter', () => animations.forEach(animation => animation.pause()));
-    marquee.closest('.wixui-text-marquee')?.addEventListener('pointerleave', () => { if (playing) animations.forEach(animation => animation.play()); });
-    updateToggle();
+    (document.fonts?.ready ?? Promise.resolve()).then(() => {
+      const copies = [...marquee.children];
+      const speed = innerWidth <= 750 ? 22 : 28;
+      const animations = copies.map(copy => {
+        const animation = copy.animate([{transform:'translateX(0)'},{transform:'translateX(-100%)'}],
+          {duration:copy.scrollWidth / speed * 1000,iterations:Infinity,easing:'linear'});
+        animation.pause();
+        return animation;
+      });
+      let playing = true, entered = false, hovered = false;
+      const refresh = () => {
+        toggle.setAttribute('aria-label',playing ? 'Pause Marquee' : 'Play Marquee');
+        toggle.setAttribute('aria-pressed',String(playing));
+        animations.forEach(animation => playing && entered && !hovered ? animation.play() : animation.pause());
+      };
+      const entrance = new IntersectionObserver(entries => {
+        if (!entries.some(entry => entry.isIntersecting)) return;
+        entered = true;
+        refresh();
+        const root = marquee.closest('.wixui-text-marquee');
+        root.animate([{transform:'translateY(32px)',opacity:0},{transform:'translateY(0)',opacity:1}],
+          {duration:900,easing:'cubic-bezier(.22,1,.36,1)'});
+        let started;
+        const settle = time => {
+          started ??= time;
+          const progress = Math.min(1,(time-started)/1100);
+          const rate = 1 + .7*(1-progress*progress*(3-2*progress));
+          animations.forEach(animation => animation.playbackRate = rate);
+          if (progress < 1) requestAnimationFrame(settle);
+        };
+        requestAnimationFrame(settle);
+        entrance.disconnect();
+      },{threshold:0});
+      entrance.observe(marquee);
+      toggle.addEventListener('click',() => {playing = !playing;refresh();});
+      marquee.closest('.wixui-text-marquee').addEventListener('pointerenter',() => {hovered=true;refresh();});
+      marquee.closest('.wixui-text-marquee').addEventListener('pointerleave',() => {hovered=false;refresh();});
+      addEventListener('resize',() => animations.forEach((animation,index) => {
+        const phase = (animation.currentTime ?? 0) / animation.effect.getTiming().duration;
+        const duration = copies[index].scrollWidth / (innerWidth <= 750 ? 22 : 28)*1000;
+        animation.effect.updateTiming({duration});
+        animation.currentTime = phase*duration;
+      }));
+      refresh();
+    });
   }
 })();
