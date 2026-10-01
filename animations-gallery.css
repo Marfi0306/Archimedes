@@ -39,3 +39,10 @@ html.lenis, html.lenis body { height:auto; }
 @media (min-width:751px) { #comp-mql260og { display:none !important; } }
 @media (max-width:370px) { .standalone-gallery--mobile .standalone-gallery__slide { width:calc(100vw - 75px); height:calc((100vw - 75px)*1.25); } }
 @media (prefers-reduced-motion:reduce) { .standalone-gallery__track, .standalone-gallery__nav { transition:none; } }
+
+/* Keep the clipping viewport still; move two equal, unshrinkable copies inside it. */
+.wixui-text-marquee .mwhagG { width:100%; overflow:hidden; }
+.wixui-text-marquee .Qbdehy { flex:0 0 auto; width:max-content; animation:none; }
+.wixui-text-marquee [data-testid="marquee-unit"] { flex:0 0 auto; }
+.wixui-text-marquee [data-testid="marquee-item-text"],
+.wixui-text-marquee [data-testid="marquee-item-separator"] { flex:0 0 auto; }
