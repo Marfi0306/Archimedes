@@ -13,7 +13,7 @@ html.lenis, html.lenis body { height:auto; }
 .standalone-gallery__nav:hover { background:#eee9df; }
 .standalone-gallery__nav:disabled { opacity:0; pointer-events:none; }
 .standalone-gallery__prev { left:12px; }
-.standalone-gallery__next { right:24px; }
+.standalone-gallery__next { right:12px; }
 .standalone-gallery--desktop .standalone-gallery__slide { width:calc((100vw - 28px)/3); height:700px; }
 .standalone-gallery--mobile { display:none; }
 .standalone-lightbox { position:fixed; inset:0; width:100vw; max-width:none; height:100dvh; max-height:none; margin:0; padding:36px 76px; box-sizing:border-box; border:0; background:#111; color:#fff; }
@@ -74,3 +74,14 @@ html.lenis, html.lenis body { height:auto; }
 #comp-ly0760d3.comp-ly0760d3-container { grid-template-rows:auto; padding-top:56px; padding-bottom:56px; min-height:0; }
 #comp-ly076tvb { margin-top:0; margin-bottom:0; align-self:center; }
 @media(max-width:750px) { #comp-ly0760d3.comp-ly0760d3-container { padding-top:32px; padding-bottom:32px; } }
+
+/* Reuse the space released by the shorter header. */
+#comp-mpufnl8n .comp-mpufnl8n-container { padding-top:55px; }
+@media(min-width:751px) and (max-width:1000px) { #comp-mpufosnv .comp-mpufosnv-container { padding-top:65px; } }
+@media(max-width:750px) { #comp-mpufosnv .comp-mpufosnv-container { padding-top:54px; } }
+/* The footer starts at the end of the marquee's equal bottom padding. */
+#comp-kbgakxmn_r_comp-kbgakgyt .comp-kbgakxmn_r_comp-kbgakgyt-container { padding-top:0; }
+/* All three examination plates occupy the same frame without letterboxing. */
+#comp-mpttytua, #comp-mpttzafl, #comp-mpttwj7v { aspect-ratio:1 / 1.22445; }
+#comp-mpttytua img, #comp-mpttzafl img, #comp-mpttwj7v img,
+#comp-mpuj4f1g img, #comp-mpuj4f1i10 img, #comp-mpuj4f1j19 img { object-fit:fill !important; }
