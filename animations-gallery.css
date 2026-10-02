@@ -85,3 +85,9 @@ html.lenis, html.lenis body { height:auto; }
 #comp-mpttytua, #comp-mpttzafl, #comp-mpttwj7v { aspect-ratio:1 / 1.22445; }
 #comp-mpttytua img, #comp-mpttzafl img, #comp-mpttwj7v img,
 #comp-mpuj4f1g img, #comp-mpuj4f1i10 img, #comp-mpuj4f1j19 img { object-fit:fill !important; }
+
+/* Follow the Wix gallery frame, rather than overflowing into the marquee. */
+.standalone-gallery--desktop,
+.standalone-gallery--desktop .standalone-gallery__viewport,
+.standalone-gallery--desktop .standalone-gallery__track,
+.standalone-gallery--desktop .standalone-gallery__slide { height:100%; }
