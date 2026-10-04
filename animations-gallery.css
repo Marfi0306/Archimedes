@@ -47,11 +47,6 @@ html.lenis, html.lenis body { height:auto; }
 .wixui-text-marquee [data-testid="marquee-item-text"],
 .wixui-text-marquee [data-testid="marquee-item-separator"] { flex:0 0 auto; }
 
-/* Solid, slightly shorter navigation. */
-#comp-kbgakxea_r_comp-kbgajy18 { --bg-gradient:none; --bg-overlay-color:#fefcf6; background:#fefcf6; }
-#comp-kbgakxea_r_comp-ly5n65gh { --backdrop-filter:none; backdrop-filter:none !important; -webkit-backdrop-filter:none !important; }
-#comp-kbgakxea_r_comp-kbgajy18 .comp-kbgakxea_r_comp-kbgajy18-container { grid-template-rows:minmax(46px,auto); }
-#comp-kbgakxea_r_comp-ly5n65gh .comp-kbgakxea_r_comp-ly5n65gh-container { min-height:46px; padding-top:0; padding-bottom:0; }
 /* Keep the entire sticky examination image inside a short viewport. */
 @media (min-width:751px) {
   #comp-mpttytua, #comp-mpttzafl, #comp-mpttwj7v {
@@ -64,8 +59,6 @@ html.lenis, html.lenis body { height:auto; }
   transition-duration:.65s !important;
   --transition-duration:.65s;
 }
-#comp-kbgakxea_r_comp-ly5n65gh .comp-kbgakxea_r_comp-ly5n65gh-container { grid-template-rows:46px; }
-#comp-kbgakxea_r_comp-ly5n65gh .comp-kbgakxea_r_comp-ly5n65gh-container > [id] { margin-top:0; margin-bottom:0; align-self:center; }
 
 /* Opacity preserves the resting intersection geometry while preventing pre-entry flashes. */
 .motion-ready [data-entrance-pending] { opacity:0; }
@@ -75,10 +68,6 @@ html.lenis, html.lenis body { height:auto; }
 #comp-ly076tvb { margin-top:0; margin-bottom:0; align-self:center; }
 @media(max-width:750px) { #comp-ly0760d3.comp-ly0760d3-container { padding-top:32px; padding-bottom:32px; } }
 
-/* Reuse the space released by the shorter header. */
-#comp-mpufnl8n .comp-mpufnl8n-container { padding-top:55px; }
-@media(min-width:751px) and (max-width:1000px) { #comp-mpufosnv .comp-mpufosnv-container { padding-top:65px; } }
-@media(max-width:750px) { #comp-mpufosnv .comp-mpufosnv-container { padding-top:54px; } }
 /* The footer starts at the end of the marquee's equal bottom padding. */
 #comp-kbgakxmn_r_comp-kbgakgyt .comp-kbgakxmn_r_comp-kbgakgyt-container { padding-top:0; }
 /* All three examination plates occupy the same frame without letterboxing. */
