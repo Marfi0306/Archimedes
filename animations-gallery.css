@@ -73,7 +73,7 @@ html.lenis, html.lenis body { height:auto; }
 /* All three examination plates occupy the same frame without letterboxing. */
 #comp-mpttytua, #comp-mpttzafl, #comp-mpttwj7v { aspect-ratio:1 / 1.22445; }
 #comp-mpttytua img, #comp-mpttzafl img, #comp-mpttwj7v img,
-#comp-mpuj4f1g img, #comp-mpuj4f1i10 img, #comp-mpuj4f1j19 img { object-fit:fill !important; }
+#comp-mpuj4f1g img, #comp-mpuj4f1i10 img, #comp-mpuj4f1j19 img { object-fit:cover !important; }
 
 /* Follow the Wix gallery frame, rather than overflowing into the marquee. */
 .standalone-gallery--desktop,
@@ -106,3 +106,17 @@ html.lightbox-open, html.lightbox-open body { overflow:hidden; }
 .standalone-lightbox__prev, .standalone-lightbox__next { display:grid; place-items:center; width:48px; height:48px; border-radius:50%; background:rgba(30,30,30,.8) !important; }
 .standalone-lightbox button:focus-visible, .standalone-gallery__slide:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
 @media(max-width:750px) { .standalone-lightbox__stage { inset:70px 16px 70px; } .standalone-lightbox__prev, .standalone-lightbox__next { top:auto; bottom:10px; transform:none; } }
+
+/* Expert introductions scale continuously without changing the other Wix text presets. */
+html.standalone-menu-open, html.standalone-menu-open body { overflow:hidden; }
+.standalone-mobile-nav #comp-kbgakxea_r_comp-mpuineue5 ul { display:flex; gap:12px; }
+.standalone-mobile-nav #comp-kbgakxea_r_comp-mpuineue5 li { width:28px; height:28px; margin:0; }
+.standalone-mobile-nav #comp-kbgakxea_r_comp-mpuineue5 :is(a,wow-image,img) { display:block; width:28px; height:28px; }
+#comp-ly5wok005, #comp-mpubl4l115 {
+  --minFontSize:30px;
+  --maxFontSize:50px;
+}
+#comp-ly5wok005 :is(p,h1,h2,h3,h4,h5,h6,ul,ol,span[data-attr-richtext-marker],blockquote,div),
+#comp-mpubl4l115 :is(p,h1,h2,h3,h4,h5,h6,ul,ol,span[data-attr-richtext-marker],blockquote,div) {
+  font-size:clamp(30px,calc(.03508772 * (var(--scaling-factor) - var(--scrollbar-width))),50px) !important;
+}
