@@ -86,36 +86,109 @@
     ['assets/60b7abc407782c0c.webp','X-ray of the painting'],
     ['assets/70642b91e307cb7b.webp','Ultraviolet examination']
   ];
+  const chevron = direction => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${direction === 'prev' ? 'M14 6l-6 6 6 6' : 'M10 6l6 6-6 6'}" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  // Thumbnails stay small; the modal loads the original uncropped Wix image.
+  const fullImageSources = [
+    'https://static.wixstatic.com/media/920c1a_2b25798893fb4948851e352abe08b782~mv2.webp',
+    'https://static.wixstatic.com/media/920c1a_12ebd11724274a558f943824f3993700~mv2.webp',
+    'https://static.wixstatic.com/media/920c1a_d472d8dc145242398a281500b4f14980~mv2.webp',
+    'https://static.wixstatic.com/media/920c1a_ba0559f7b5114e1da482aae38e0ee0aa~mv2.webp',
+    'https://static.wixstatic.com/media/920c1a_63a8b9cb54694bb39aab0cad88cfbcf5~mv2.webp'
+  ];
   const lightbox = document.createElement('dialog');
   lightbox.className = 'standalone-lightbox';
-  lightbox.innerHTML = '<button class="standalone-lightbox__close" type="button" aria-label="Close image">×</button><button class="standalone-lightbox__prev" type="button" aria-label="Previous image">‹</button><img alt=""><button class="standalone-lightbox__next" type="button" aria-label="Next image">›</button>';
+  lightbox.setAttribute('aria-label', 'Artwork image viewer');
+  lightbox.setAttribute('data-lenis-prevent', '');
+  lightbox.innerHTML = `<div class="standalone-lightbox__stage"><img alt="" draggable="false"></div><div class="standalone-lightbox__tools"><button type="button" aria-label="Zoom out">−</button><button type="button" aria-label="Reset zoom">100%</button><button type="button" aria-label="Zoom in">+</button><button class="standalone-lightbox__close" type="button" aria-label="Close image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></button></div><button class="standalone-lightbox__prev" type="button" aria-label="Previous image">${chevron('prev')}</button><button class="standalone-lightbox__next" type="button" aria-label="Next image">${chevron('next')}</button>`;
   document.body.append(lightbox);
-  let lightboxSources = [], lightboxIndex = 0;
-  const showLightboxImage = () => {
-    const image = $('img', lightbox);
-    [image.src, image.alt] = lightboxSources[lightboxIndex];
+  const stage = $('.standalone-lightbox__stage', lightbox);
+  const lightboxImage = $('img', lightbox);
+  const zoomLabel = $('[aria-label="Reset zoom"]', lightbox);
+  let lightboxSources = [], lightboxIndex = 0, zoom = 1, panX = 0, panY = 0;
+  let panOrigin = null, pointerMoved = false, returnFocus = null, startedOnBackdrop = false;
+  const pointers = new Map();
+  const renderZoom = () => {
+    const limitX = Math.max(0, (lightboxImage.offsetWidth * zoom - stage.clientWidth) / 2);
+    const limitY = Math.max(0, (lightboxImage.offsetHeight * zoom - stage.clientHeight) / 2);
+    panX = Math.max(-limitX, Math.min(limitX, panX));
+    panY = Math.max(-limitY, Math.min(limitY, panY));
+    lightboxImage.style.transform = `translate3d(${panX}px,${panY}px,0) scale(${zoom})`;
+    stage.classList.toggle('is-zoomed', zoom > 1);
+    zoomLabel.textContent = `${Math.round(zoom * 100)}%`;
+    $('[aria-label="Zoom out"]', lightbox).disabled = zoom <= 1;
+    $('[aria-label="Zoom in"]', lightbox).disabled = zoom >= 4;
   };
+  const setZoom = value => { zoom = Math.max(1, Math.min(4, value)); renderZoom(); };
+  const resetZoom = () => { zoom = 1; panX = panY = 0; renderZoom(); };
+  const showLightboxImage = () => {
+    resetZoom();
+    lightboxImage.src = fullImageSources[lightboxIndex];
+    lightboxImage.alt = lightboxSources[lightboxIndex][1];
+  };
+  lightboxImage.addEventListener('load', renderZoom);
   const moveLightbox = direction => {
     lightboxIndex = (lightboxIndex + direction + lightboxSources.length) % lightboxSources.length;
     showLightboxImage();
   };
+  $('[aria-label="Zoom in"]', lightbox).onclick = () => setZoom(zoom + .5);
+  $('[aria-label="Zoom out"]', lightbox).onclick = () => setZoom(zoom - .5);
+  zoomLabel.onclick = resetZoom;
   $('.standalone-lightbox__close', lightbox).onclick = () => lightbox.close();
   $('.standalone-lightbox__prev', lightbox).onclick = () => moveLightbox(-1);
   $('.standalone-lightbox__next', lightbox).onclick = () => moveLightbox(1);
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.close(); });
-  lightbox.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') moveLightbox(e.key === 'ArrowRight' ? 1 : -1);
+  lightbox.addEventListener('close', () => {
+    document.documentElement.classList.remove('lightbox-open');
+    pointers.clear(); resetZoom(); returnFocus?.focus({preventScroll:true});
   });
+  stage.addEventListener('click', e => { if (e.target === stage && startedOnBackdrop && !pointerMoved) lightbox.close(); });
+  stage.addEventListener('dblclick', () => { if (!startedOnBackdrop) setZoom(zoom > 1 ? 1 : 2); });
+  stage.addEventListener('wheel', e => {
+    e.preventDefault(); e.stopPropagation();
+    setZoom(zoom * Math.exp(-e.deltaY * .002));
+  }, {passive:false});
+  stage.addEventListener('pointerdown', e => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    startedOnBackdrop = e.target === stage;
+    pointers.set(e.pointerId, {x:e.clientX,y:e.clientY});
+    pointerMoved = false;
+    panOrigin = {x:e.clientX,y:e.clientY,panX,panY,zoom};
+    if (pointers.size === 2) {
+      const [a,b] = [...pointers.values()];
+      panOrigin.distance = Math.hypot(a.x-b.x,a.y-b.y);
+    }
+    stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener('pointermove', e => {
+    if (!pointers.has(e.pointerId) || !panOrigin) return;
+    pointers.set(e.pointerId, {x:e.clientX,y:e.clientY});
+    const dx = e.clientX-panOrigin.x, dy = e.clientY-panOrigin.y;
+    if (Math.hypot(dx,dy)>4) pointerMoved = true;
+    if (pointers.size === 2 && panOrigin.distance) {
+      const [a,b] = [...pointers.values()];
+      setZoom(panOrigin.zoom*Math.hypot(a.x-b.x,a.y-b.y)/panOrigin.distance);
+    } else if (zoom > 1) {
+      panX = panOrigin.panX+dx; panY = panOrigin.panY+dy; renderZoom();
+    }
+  });
+  const endPan = e => { pointers.delete(e.pointerId); panOrigin = null; };
+  stage.addEventListener('pointerup', endPan);
+  stage.addEventListener('pointercancel', endPan);
+  lightbox.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); moveLightbox(e.key === 'ArrowRight' ? 1 : -1); }
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); setZoom(zoom+.5); }
+    if (e.key === '-') { e.preventDefault(); setZoom(zoom-.5); }
+  });
+  addEventListener('resize', renderZoom);
   const makeGallery = (root, sources, mode) => {
     if (!root) return;
-    root.innerHTML = `<div class="standalone-gallery standalone-gallery--${mode}" role="region" aria-label="Artwork gallery" tabindex="0"><div class="standalone-gallery__viewport"><div class="standalone-gallery__track">${sources.map(([src,alt])=>`<div class="standalone-gallery__slide"><img src="${src}" alt="${alt}" loading="${(mode === 'mobile') === (innerWidth <= 750) ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div>`).join('')}</div></div><button type="button" class="standalone-gallery__nav standalone-gallery__prev" aria-label="Previous image">‹</button><button type="button" class="standalone-gallery__nav standalone-gallery__next" aria-label="Next image">›</button></div>`;
+    root.innerHTML = `<div class="standalone-gallery standalone-gallery--${mode}" role="region" aria-label="Artwork gallery" tabindex="0"><div class="standalone-gallery__viewport"><div class="standalone-gallery__track">${sources.map(([src,alt])=>`<div class="standalone-gallery__slide" role="button" tabindex="0" aria-label="Open ${alt}"><img src="${src}" alt="${alt}" loading="${(mode === 'mobile') === (innerWidth <= 750) ? 'eager' : 'lazy'}" decoding="async" draggable="false"></div>`).join('')}</div></div><button type="button" class="standalone-gallery__nav standalone-gallery__prev" aria-label="Previous image">${chevron('prev')}</button><button type="button" class="standalone-gallery__nav standalone-gallery__next" aria-label="Next image">${chevron('next')}</button></div>`;
     const gallery = $('.standalone-gallery', root);
     const viewport = $('.standalone-gallery__viewport', root);
     const track = $('.standalone-gallery__track', root);
     const slides = $$('.standalone-gallery__slide', root);
     const prev = $('.standalone-gallery__prev', root);
     const next = $('.standalone-gallery__next', root);
-    let index = 0, startX = 0, deltaX = 0, pointerId = null, dragged = false;
+    let index = 0, startX = 0, deltaX = 0, pointerId = null, dragged = false, pressedSlide = null;
     const step = () => slides[1]?.offsetLeft - slides[0]?.offsetLeft || slides[0]?.offsetWidth || 1;
     const maxIndex = () => mode === 'desktop' ? Math.max(0, slides.length - 3) : slides.length - 1;
     const render = (drag = 0) => {
@@ -127,9 +200,13 @@
     gallery.addEventListener('keydown', e => {
       if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { e.preventDefault(); go(e.key === 'ArrowRight' ? 1 : -1); }
     });
+    slides.forEach(slide => slide.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); slide.click(); }
+    }));
     viewport.addEventListener('pointerdown', e => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       pointerId = e.pointerId; startX = e.clientX; deltaX = 0; dragged = false;
+      pressedSlide = e.target.closest('.standalone-gallery__slide');
       track.style.transition = 'none'; viewport.setPointerCapture(pointerId);
     });
     viewport.addEventListener('pointermove', e => {
@@ -145,13 +222,16 @@
     };
     viewport.addEventListener('pointerup', finish);
     viewport.addEventListener('pointercancel', finish);
-    track.addEventListener('click', e => {
-      const slide = e.target.closest('.standalone-gallery__slide');
+    viewport.addEventListener('click', e => {
+      const slide = e.target.closest('.standalone-gallery__slide') || pressedSlide;
       if (!slide || dragged) { dragged = false; return; }
       lightboxSources = sources;
       lightboxIndex = slides.indexOf(slide);
       showLightboxImage();
+      returnFocus = slide;
       lightbox.showModal();
+      document.documentElement.classList.add('lightbox-open');
+      renderZoom();
     });
     addEventListener('resize', () => { index = Math.min(index, maxIndex()); render(); });
     render();
