@@ -2,6 +2,16 @@
   const $ = (s, root = document) => root.querySelector(s);
   const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 
+  // Wix subtracts the scrollbar from each component's individual fluid preset.
+  const updateScrollbarWidth = () => {
+    if (!document.documentElement.classList.contains('standalone-menu-open') &&
+        !document.documentElement.classList.contains('lightbox-open')) {
+      document.body.style.setProperty('--scrollbar-width', `${innerWidth - document.documentElement.clientWidth}px`);
+    }
+  };
+  updateScrollbarWidth();
+  addEventListener('resize', updateScrollbarWidth);
+
   for (const sectionId of ['comp-lxun76he','comp-mpuj9y3c']) {
     const section = document.getElementById(sectionId);
     section?.querySelectorAll('.wixui-image a').forEach(link => {
@@ -27,10 +37,21 @@
   let menuPanel = document.getElementById('comp-kbgakxea_r_comp-mpuineua5');
   if(menuPanel && !menuPanel.querySelector('.standalone-mobile-nav')){
     const nav=document.createElement('nav');nav.className='standalone-mobile-nav';nav.setAttribute('aria-label','Site navigation');
-    nav.innerHTML='<a href="#comp-mpufoso712">THE STORY</a><a href="#comp-mpuix9j9">KEY DISCOVERIES</a><a href="#comp-ly44x60h">AUTHENTICATION</a>';
+    nav.innerHTML='<a href="#comp-mpvmnaf7">THE STORY</a><a href="#comp-mpuix9j9">KEY DISCOVERIES</a><a href="#comp-ly44x60h">AUTHENTICATION</a>';
     Object.assign(nav.style,{position:'fixed',inset:'0 0 0 40%',zIndex:'9998',background:'#fefcf6',padding:'150px 26px 80px',display:'flex',flexDirection:'column',gap:'24px',boxSizing:'border-box'});
     [...nav.children].forEach(a=>Object.assign(a.style,{color:'#292720',fontSize:'20px',textDecoration:'none',fontFamily:'Arial,sans-serif'}));
     menuPanel.prepend(nav);
+    if (closeButton) {
+      const closeWrapper = closeButton.parentElement;
+      nav.append(closeWrapper);
+      Object.assign(closeWrapper.style,{position:'absolute',top:'20px',right:'24px',zIndex:'9999'});
+    }
+    const social = document.getElementById('comp-kbgakxea_r_comp-mpuineue5');
+    if (social) {
+      nav.append(social);
+      Object.assign(social.style,{position:'absolute',bottom:'40px',left:'26px',width:'auto',display:'block'});
+      social.querySelectorAll('img').forEach((image,index)=>image.src=index===0?'assets/instagram.png':'assets/youtube.png');
+    }
   }
   let menuAnimation;
   const setMenu = open => {
@@ -45,7 +66,7 @@
     menuPanel.querySelectorAll('[class*="overflow-wrapper"]').forEach(x=>x.style.transform='none');
     menuPanel.setAttribute('aria-hidden', String(!open));
     let p=closeButton;
-    while(p && p!==menuPanel){p.style.display=open?(p.tagName==='BUTTON'?'block':'grid'):'';p=p.parentElement;}
+    while(p && p!==menuPanel && p!==nav){p.style.display=open?(p.tagName==='BUTTON'?'block':'grid'):'';p=p.parentElement;}
     openButton?.setAttribute('aria-expanded', String(open));
     document.documentElement.classList.toggle('standalone-menu-open', open);
     if (open) {
@@ -64,6 +85,7 @@
   const closeMenu = () => setMenu(false);
   openButton?.addEventListener('click', () => setMenu(true));
   closeButton?.addEventListener('click', closeMenu);
+  menuPanel?.addEventListener('click', e => { if (e.target === menuPanel || e.target.matches('[data-hook="hamburger-overlay-dialog"]')) closeMenu(); });
   document.addEventListener('keydown', e => e.key === 'Escape' && closeMenu());
   if (menuPanel) { menuPanel.hidden = true; setMenu(false); }
   $$('.standalone-mobile-nav a').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});closeMenu()}}));
