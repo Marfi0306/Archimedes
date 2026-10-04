@@ -214,9 +214,13 @@
     const step = () => slides[1]?.offsetLeft - slides[0]?.offsetLeft || slides[0]?.offsetWidth || 1;
     const maxIndex = () => mode === 'desktop' ? Math.max(0, slides.length - 3) : slides.length - 1;
     const render = (drag = 0) => {
-      track.style.transform = `translate3d(${-(index * step()) + drag}px,0,0)`;
+      const distance = step();
+      const offset = Math.max(-maxIndex() * distance, Math.min(0, -index * distance + drag));
+      track.style.transform = `translate3d(${offset}px,0,0)`;
+      prev.disabled = index === 0;
+      next.disabled = index === maxIndex();
     };
-    const go = direction => { index = (index + direction + maxIndex() + 1) % (maxIndex() + 1); render(); };
+    const go = direction => { index = Math.max(0, Math.min(maxIndex(), index + direction)); render(); };
     prev.addEventListener('click', () => go(-1));
     next.addEventListener('click', () => go(1));
     gallery.addEventListener('keydown', e => {
