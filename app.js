@@ -300,7 +300,7 @@
         ]};
       }
       case 'FadeScroll': return {target:element, tracks:[{frames:[{opacity:out ? 1 : (n.opacity ?? 0)}, {opacity:out ? (n.opacity ?? 0) : 1}]}]};
-      case 'ShrinkScroll': return {target:element, tracks:[{frames:[{transform:`scale(${n.scale ?? 1.2})`}, {transform:'scale(1)'}], easing:'cubic-bezier(.47,0,.745,.715)'}]};
+      case 'ShrinkScroll': return {target:element, tracks:[{frames:[{transform:`scale(${n.scale ?? 1.2})`}, {transform:'scale(1)'}], easing:innerWidth <= 1000 ? 'linear' : 'cubic-bezier(.47,0,.745,.715)'}]};
       case 'TurnScroll': {
         const bounds = element.getBoundingClientRect();
         const offscreenX = n.direction === 'left' ? innerWidth - bounds.left : -bounds.left - bounds.width;
@@ -315,7 +315,9 @@
         const angle = ((n.angle ?? 210) - 90) * Math.PI / 180;
         const distance = n.distance?.value ?? 80;
         const moved = `translate(${Math.round(Math.cos(angle) * distance)}px,${Math.round(Math.sin(angle) * distance)}px)`;
-        return {target:element, tracks:[{frames:[{transform:out ? 'translate(0,0)' : moved}, {transform:out ? moved : 'translate(0,0)'}]}]};
+        const base = innerWidth <= 1000 ? getComputedStyle(element).transform : 'none';
+        const resting = base === 'none' ? '' : ` ${base}`;
+        return {target:element, tracks:[{frames:[{transform:(out ? 'translate(0,0)' : moved)+resting}, {transform:(out ? moved : 'translate(0,0)')+resting}]}]};
       }
       case 'ImageParallax': {
         const media = element.querySelector('[data-motion-part~="BG_MEDIA"]');
@@ -342,17 +344,44 @@
     for (let node = element; node; node = node.offsetParent) y += node.offsetTop || 0;
     return y;
   };
+  const flowRange = element => {
+    const chain = [];
+    let flow = 0;
+    for (let node = element; node; node = node.offsetParent) {
+      const style = getComputedStyle(node);
+      const sticky = style.position === 'sticky';
+      const pin = sticky ? parseFloat(style.top) : NaN;
+      const previous = node.style.position;
+      if (sticky) node.style.position = 'static';
+      const offset = node.offsetTop || 0;
+      node.style.position = previous;
+      flow += offset;
+      chain.unshift({node, offset, pin});
+    }
+    let start = flow - innerHeight, end = flow + element.offsetHeight, position = 0;
+    chain.forEach((item, index) => {
+      position += item.offset;
+      if (!Number.isFinite(item.pin) || !index) return;
+      const pinStart = position - item.pin;
+      if (pinStart > end) return;
+      const travel = Math.max(0, chain[index - 1].node.offsetHeight - item.offset - item.node.offsetHeight);
+      if (pinStart < start) start += travel;
+      end += travel;
+      position += travel;
+    });
+    return {start, end};
+  };
   const updateMotion = () => {
     for (const {section,images} of examinationStacks) {
       if (!section || !section.offsetHeight) continue;
       const progress = reducedMotion.matches ? 0 : clamp((scrollY-layoutTop(section))/section.offsetHeight);
       images.forEach((image,index) => {
-        if (image) image.style.opacity = String(index === 2 ? 1 : 1-clamp(progress*3-index));
+        if (image) image.style.opacity = String(innerWidth <= 750 || index === 2 ? 1 : 1-clamp(progress*3-index));
       });
     }
-    for (const {source, effect, animations, progressSource} of scrubs) {
+    for (const {source, effect, animations, progressSource, viewRange} of scrubs) {
       const geometry = progressSource || source;
-      const cover = (scrollY + innerHeight - layoutTop(geometry)) / (innerHeight + geometry.offsetHeight);
+      const cover = viewRange ? (scrollY - viewRange.start) / (viewRange.end - viewRange.start) : (scrollY + innerHeight - layoutTop(geometry)) / (innerHeight + geometry.offsetHeight);
       const start = (effect.startOffset?.offset?.value ?? 0) / 100;
       const end = (effect.endOffset?.offset?.value ?? 100) / 100;
       const currentTime = clamp((cover - start) / (end - start || 1)) * 1000;
@@ -375,7 +404,7 @@
         }
         observer.unobserve(entry.target);
       }
-    }, {rootMargin:'0px 0px -5% 0px', threshold:0.01});
+    }, {rootMargin:innerWidth <= 1000 ? '0px' : '0px 0px -5% 0px', threshold:innerWidth <= 1000 ? 0 : 0.01});
     const seen = new Set();
     for (const [sourceId, events] of Object.entries(motion.triggers)) {
       const source = document.getElementById(sourceId);
@@ -399,7 +428,7 @@
               const createAnimations = () => definition.tracks.map(track => {
                 const animation = definition.target.animate(track.frames, {
                   duration:event === 'view-progress' ? 1000 : (track.duration ?? effect.duration ?? 1200),
-                  delay:event === 'view-progress' ? 0 : (effect.delay ?? 0),
+                  delay:event === 'view-progress' ? 0 : (effect.delay ?? 0) + (innerWidth <= 1000 ? 1 : 0),
                   easing:track.easing ?? 'linear',
                   composite:track.composite ?? 'replace',
                   fill:event === 'view-progress' ? 'both' : 'backwards'
@@ -408,7 +437,11 @@
                 else animation.onfinish = () => animation.cancel();
                 return animation;
               });
-              if (event === 'view-progress') scrubs.push({source, effect, animations:createAnimations(), progressSource:getComputedStyle(source).position === 'sticky' ? source.closest('.wixui-section') : null});
+              if (event === 'view-progress') {
+                const viewRange = innerWidth <= 1000 ? flowRange(source) : undefined;
+                scrubs.push({source, effect, animations:createAnimations(), viewRange,
+                  progressSource:innerWidth > 1000 && getComputedStyle(source).position === 'sticky' ? source.closest('.wixui-section') : null});
+              }
               else if (!played.has(key)) {
                 element.setAttribute("data-entrance-pending", "");
                 // Observe the resting geometry before TiltIn clips and rotates it.
@@ -440,7 +473,10 @@
   addEventListener('resize', () => {
     const next = innerWidth <= 750 ? 0 : innerWidth <= 1000 ? 1 : 2;
     if (next !== breakpoint) { breakpoint = next; configureMotion(); }
-    else updateMotion();
+    else {
+      if (innerWidth <= 1000) scrubs.forEach(item => { item.viewRange = flowRange(item.source); });
+      updateMotion();
+    }
   });
   reducedMotion.addEventListener('change', configureMotion);
   (document.fonts?.ready ?? Promise.resolve()).then(configureMotion);
@@ -470,11 +506,11 @@
         animation.pause();
         return animation;
       });
-      let playing = true, entered = false, hovered = false;
+      let playing = true, entered = false;
       const refresh = () => {
         toggle.setAttribute('aria-label',playing ? 'Pause Marquee' : 'Play Marquee');
         toggle.setAttribute('aria-pressed',String(playing));
-        animations.forEach(animation => playing && entered && !hovered ? animation.play() : animation.pause());
+        animations.forEach(animation => playing && entered ? animation.play() : animation.pause());
       };
       const entrance = new IntersectionObserver(entries => {
         if (!entries.some(entry => entry.isIntersecting)) return;
@@ -496,8 +532,6 @@
       },{threshold:0});
       entrance.observe(marquee);
       toggle.addEventListener('click',() => {playing = !playing;refresh();});
-      marquee.closest('.wixui-text-marquee').addEventListener('pointerenter',() => {hovered=true;refresh();});
-      marquee.closest('.wixui-text-marquee').addEventListener('pointerleave',() => {hovered=false;refresh();});
       addEventListener('resize',() => animations.forEach((animation,index) => {
         const phase = (animation.currentTime ?? 0) / animation.effect.getTiming().duration;
         const duration = copies[index].scrollWidth / (innerWidth <= 750 ? 22 : 28)*1000;
