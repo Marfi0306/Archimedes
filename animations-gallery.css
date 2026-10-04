@@ -91,3 +91,29 @@ html.lenis, html.lenis body { height:auto; }
 .standalone-gallery--desktop .standalone-gallery__viewport,
 .standalone-gallery--desktop .standalone-gallery__track,
 .standalone-gallery--desktop .standalone-gallery__slide { height:100%; }
+
+/* Geometric icons stay centered independently of the typeface's baseline. */
+.standalone-gallery__nav svg, .standalone-lightbox button svg { display:block; width:24px; height:24px; }
+@media(min-width:751px) {
+  #comp-mpuavud4 { top:215px; }
+  #comp-mpuaw403, #comp-mpuaw6up, #comp-mpuj9y3o, #comp-mpuj9y3q9 { top:175px; }
+  #comp-mpuj9y3s18 { top:215px; }
+}
+/* Match the original per-card hover variant. */
+[id^="comp-mpu03487__"] > .inner-box { transition:background-color .45s ease; }
+[id^="comp-mpu03487__"]:hover { --bg:var(--color_18); --alpha-bg:.15; }
+html.lightbox-open, html.lightbox-open body { overflow:hidden; }
+.standalone-lightbox { padding:0; background:transparent; overflow:hidden; outline:none; }
+.standalone-lightbox::backdrop { background:rgba(0,0,0,.92); }
+.standalone-lightbox[open] { display:block; }
+.standalone-lightbox__stage { position:absolute; inset:70px 80px 30px; display:flex; align-items:center; justify-content:center; overflow:hidden; touch-action:none; }
+.standalone-lightbox__stage img { flex:none; width:auto; height:auto; max-width:100%; max-height:100%; object-fit:contain; transform-origin:center; cursor:zoom-in; user-select:none; }
+.standalone-lightbox__stage.is-zoomed img { cursor:grab; }
+.standalone-lightbox__stage.is-zoomed img:active { cursor:grabbing; }
+.standalone-lightbox .standalone-lightbox__tools { position:absolute; top:14px; right:16px; display:flex; align-items:center; gap:8px; z-index:3; }
+.standalone-lightbox__tools button { position:static; display:grid; place-items:center; height:44px; min-width:44px; padding:0 10px; border-radius:6px; background:rgba(30,30,30,.8); font:24px/1 Arial,sans-serif; }
+.standalone-lightbox__tools [aria-label="Reset zoom"] { font-size:14px; min-width:62px; }
+.standalone-lightbox button:disabled { opacity:.35; cursor:default; }
+.standalone-lightbox__prev, .standalone-lightbox__next { display:grid; place-items:center; width:48px; height:48px; border-radius:50%; background:rgba(30,30,30,.8) !important; }
+.standalone-lightbox button:focus-visible, .standalone-gallery__slide:focus-visible { outline:2px solid currentColor; outline-offset:3px; }
+@media(max-width:750px) { .standalone-lightbox__stage { inset:70px 16px 70px; } .standalone-lightbox__prev, .standalone-lightbox__next { top:auto; bottom:10px; transform:none; } }
