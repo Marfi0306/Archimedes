@@ -108,6 +108,27 @@ html.lightbox-open, html.lightbox-open body { overflow:hidden; }
 @media(max-width:750px) { .standalone-lightbox__stage { inset:70px 16px 70px; } .standalone-lightbox__prev, .standalone-lightbox__next { top:auto; bottom:10px; transform:none; } }
 
 /* Expert introductions scale continuously without changing the other Wix text presets. */
+/* Portrait gallery frames share the requested painting ratio on every breakpoint. */
+#comp-mpvibs9m6, #comp-mql260og { height:auto !important; }
+#gallery-wrapper-comp-mpvibs9m6 { position:relative !important; width:100%; height:auto !important; }
+.standalone-gallery--desktop,
+.standalone-gallery--desktop .standalone-gallery__viewport,
+.standalone-gallery--desktop .standalone-gallery__track { height:auto; }
+.standalone-gallery--desktop .standalone-gallery__slide,
+.standalone-gallery--mobile .standalone-gallery__slide { height:auto !important; aspect-ratio:915 / 1135; }
+@media(min-width:751px) and (max-width:1000px) {
+  #comp-ly5n05rw { position:relative; top:auto; }
+}
+@media(max-width:750px) {
+  #comp-ly44x60h .comp-ly44x60h-container,
+  #comp-mpubl4kl .comp-mpubl4kl-container { padding-top:60px; }
+  #comp-ly44x60h, #comp-mpubl4kl { scroll-margin-top:0; }
+  #comp-mpuj43bh .comp-mpuj43bh-container { grid-template-rows:repeat(3,auto); gap:12px; }
+  #comp-mpuj4f1g, #comp-mpuj4f1i10, #comp-mpuj4f1j19 { margin-top:0; margin-right:0; width:100%; z-index:auto !important; }
+  #comp-mpuj4f1g { grid-area:1/1/2/2; }
+  #comp-mpuj4f1i10 { grid-area:2/1/3/2; }
+  #comp-mpuj4f1j19 { grid-area:3/1/4/2; }
+}
 html.standalone-menu-open, html.standalone-menu-open body { overflow:hidden; }
 .standalone-mobile-nav #comp-kbgakxea_r_comp-mpuineue5 ul { display:flex; gap:12px; }
 .standalone-mobile-nav #comp-kbgakxea_r_comp-mpuineue5 li { width:28px; height:28px; margin:0; }

@@ -50,7 +50,7 @@
     if (social) {
       nav.append(social);
       Object.assign(social.style,{position:'absolute',bottom:'40px',left:'26px',width:'auto',display:'block'});
-      social.querySelectorAll('img').forEach((image,index)=>image.src=index===0?'assets/instagram.png':'assets/youtube.png');
+      social.querySelectorAll('img').forEach((image,index)=>image.src=index===0?'assets/instagram.webp':'assets/youtube.webp');
     }
   }
   let menuAnimation;
