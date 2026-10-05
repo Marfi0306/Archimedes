@@ -375,6 +375,7 @@
     });
     return {start, end};
   };
+  const artworkSideImageIds = new Set(['comp-mpuj9y3o', 'comp-mpuj9y3q9', 'comp-mpuaw403', 'comp-mpuaw6up']);
   const updateMotion = () => {
     for (const {section,images} of examinationStacks) {
       if (!section || !section.offsetHeight) continue;
@@ -388,7 +389,9 @@
       const cover = viewRange ? (scrollY - viewRange.start) / (viewRange.end - viewRange.start) : (scrollY + innerHeight - layoutTop(geometry)) / (innerHeight + geometry.offsetHeight);
       const start = (effect.startOffset?.offset?.value ?? 0) / 100;
       const end = (effect.endOffset?.offset?.value ?? 100) / 100;
-      const currentTime = clamp((cover - start) / (end - start || 1)) * 1000;
+      // Give the two side images more scroll distance on mobile and tablet.
+      const scrollSpan = innerWidth <= 1000 && artworkSideImageIds.has(source.id) ? 1.5 : 1;
+      const currentTime = clamp((cover - start) / ((end - start || 1) * scrollSpan)) * 1000;
       animations.forEach(animation => { animation.currentTime = currentTime; });
     }
   };
