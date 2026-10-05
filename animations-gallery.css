@@ -153,3 +153,7 @@ html.standalone-menu-open, html.standalone-menu-open body { overflow:hidden; }
   #comp-mpuavud4 { top:160px; }
   #comp-ly0760d3.comp-ly0760d3-container { padding-top:40px; padding-bottom:40px; }
 }
+
+@media (min-width:751px) and (max-width:1000px) {
+  #comp-ly5n05rw.tablet-story-hidden, #comp-ly5n05rw.tablet-story-hidden * { visibility:hidden !important; pointer-events:none !important; }
+}
