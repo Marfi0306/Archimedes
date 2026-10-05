@@ -22,6 +22,24 @@
     });
   }
 
+  const tabletHero = document.querySelector('#comp-mpufoso1 img');
+  const tabletHeroMedia = document.querySelector('#comp-mpufoso1 [data-motion-part~="BG_MEDIA"]');
+  const defaultHeroSource = tabletHero?.getAttribute('src');
+  const updateTabletHero = () => {
+    if (!tabletHero || !tabletHeroMedia) return;
+    let src = defaultHeroSource;
+    if (innerWidth > 750 && innerWidth <= 1000) {
+      // Wix crops to the parallax media frame before applying its focal point.
+      const density = Math.min(devicePixelRatio || 1, 2);
+      const width = Math.round(tabletHeroMedia.offsetWidth * density);
+      const height = Math.round(tabletHeroMedia.offsetHeight * density);
+      src = `https://static.wixstatic.com/media/de1bc2_1c32d89e18674e87a46348a221377a9f~mv2.png/v1/fill/w_${width},h_${height},fp_0.40_0.34,q_90,usm_0.66_1.00_0.01,enc_webp,quality_auto/EdWrightImages_-2292_tif.webp`;
+    }
+    if (tabletHero.getAttribute('src') !== src) tabletHero.src = src;
+  };
+  updateTabletHero();
+  addEventListener('resize', updateTabletHero);
+
   // Navigation links exported by Wix already carry local fragment targets.
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
     const target = $(a.getAttribute('href'));
@@ -376,7 +394,13 @@
     return {start, end};
   };
   const artworkSideImageIds = new Set(['comp-mpuj9y3o', 'comp-mpuj9y3q9', 'comp-mpuaw403', 'comp-mpuaw6up']);
+  const tabletStory = document.getElementById('comp-ly5n05rw');
+  const artworkSection = document.getElementById('comp-lxun76he');
   const updateMotion = () => {
+    // Bound the tablet story overlay before the artwork and expert sections.
+    if (tabletStory && artworkSection) {
+      tabletStory.style.visibility = innerWidth > 750 && innerWidth <= 1000 && scrollY >= layoutTop(artworkSection) ? 'hidden' : '';
+    }
     for (const {section,images} of examinationStacks) {
       if (!section || !section.offsetHeight) continue;
       const progress = reducedMotion.matches ? 0 : clamp((scrollY-layoutTop(section))/section.offsetHeight);
