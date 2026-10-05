@@ -141,3 +141,15 @@ html.standalone-menu-open, html.standalone-menu-open body { overflow:hidden; }
 #comp-mpubl4l115 :is(p,h1,h2,h3,h4,h5,h6,ul,ol,span[data-attr-richtext-marker],blockquote,div) {
   font-size:clamp(30px,calc(.03508772 * (var(--scaling-factor) - var(--scrollbar-width))),50px) !important;
 }
+
+/* Tablet corrections are isolated from the approved phone and desktop layouts. */
+@media (min-width:751px) and (max-width:1000px) {
+  #comp-mpufoso313 p { font-style:italic; }
+  #comp-ly5n05rw { position:sticky; top:0; }
+  #comp-ly5wok005.wixui-rich-text :is(p,h1,h2,h3,h4,h5,h6,span),
+  #comp-mpubl4l115.wixui-rich-text :is(p,h1,h2,h3,h4,h5,h6,span) { font-size:30px !important; }
+  #comp-mpttytua, #comp-mpttzafl, #comp-mpttwj7v { top:16.973125884vh; }
+  #comp-mpuaw403, #comp-mpuaw6up { top:120px; }
+  #comp-mpuavud4 { top:160px; }
+  #comp-ly0760d3.comp-ly0760d3-container { padding-top:40px; padding-bottom:40px; }
+}
