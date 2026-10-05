@@ -399,7 +399,7 @@
   const updateMotion = () => {
     // Bound the tablet story overlay before the artwork and expert sections.
     if (tabletStory && artworkSection) {
-      tabletStory.style.visibility = innerWidth > 750 && innerWidth <= 1000 && scrollY >= layoutTop(artworkSection) ? 'hidden' : '';
+      tabletStory.classList.toggle('tablet-story-hidden', innerWidth > 750 && innerWidth <= 1000 && scrollY >= layoutTop(artworkSection));
     }
     for (const {section,images} of examinationStacks) {
       if (!section || !section.offsetHeight) continue;
