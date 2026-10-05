@@ -40,6 +40,25 @@
   updateTabletHero();
   addEventListener('resize', updateTabletHero);
 
+  const artworkImages = ['comp-mpuaw403', 'comp-mpuaw6up', 'comp-mpuavud4'].map(id => document.getElementById(id));
+  if (artworkImages.every(Boolean)) {
+    const stage = document.createElement('div');
+    stage.className = 'artwork-image-stage';
+    artworkImages[0].before(stage);
+    stage.append(...artworkImages);
+  }
+  document.querySelectorAll('a.wixui-button').forEach(link => {
+    if (!/^read more$/i.test(link.textContent.trim())) return;
+    link.removeAttribute('href');
+    link.removeAttribute('target');
+    link.setAttribute('role', 'button');
+    link.setAttribute('title', 'This document is no longer available');
+    link.setAttribute('aria-disabled', 'true');
+    link.setAttribute('aria-label', 'Read more — no longer available');
+    link.setAttribute('tabindex', '-1');
+    link.classList.add('read-more-unavailable');
+  });
+
   // Navigation links exported by Wix already carry local fragment targets.
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
     const target = $(a.getAttribute('href'));
@@ -230,10 +249,12 @@
     const next = $('.standalone-gallery__next', root);
     let index = 0, startX = 0, deltaX = 0, pointerId = null, dragged = false, pressedSlide = null;
     const step = () => slides[1]?.offsetLeft - slides[0]?.offsetLeft || slides[0]?.offsetWidth || 1;
-    const maxIndex = () => mode === 'desktop' ? Math.max(0, slides.length - 3) : slides.length - 1;
+    const maxOffset = () => Math.max(0, track.scrollWidth - viewport.clientWidth);
+    const maxIndex = () => Math.ceil(maxOffset() / step());
     const render = (drag = 0) => {
       const distance = step();
-      const offset = Math.max(-maxIndex() * distance, Math.min(0, -index * distance + drag));
+      const position = Math.min(index * distance, maxOffset());
+      const offset = Math.max(-maxOffset(), Math.min(0, -position + drag));
       track.style.transform = `translate3d(${offset}px,0,0)`;
       prev.disabled = index === 0;
       next.disabled = index === maxIndex();
