@@ -63,16 +63,39 @@
     button.textContent = 'Read more';
     button.setAttribute('aria-expanded', 'false');
     button.setAttribute('aria-controls', paragraph.id);
+    const wrapper = paragraph.parentElement;
+    let expansionAnimation;
+    const refreshTextMotion = () => {
+      if (innerWidth <= 1000) scrubs.forEach(item => { item.viewRange = flowRange(item.source); });
+      updateMotion();
+    };
     button.addEventListener('click', () => {
       const expanded = button.getAttribute('aria-expanded') !== 'true';
-      root.classList.toggle('standalone-text-expanded', expanded);
-      paragraph.classList.toggle('iwXk2R', !expanded);
+      const from = wrapper.getBoundingClientRect().height;
+      expansionAnimation?.cancel();
+      wrapper.style.height = '';
+      root.classList.remove('standalone-text-expanded');
+      paragraph.classList.add('iwXk2R');
+      const collapsedHeight = wrapper.getBoundingClientRect().height;
+      root.classList.add('standalone-text-expanded');
+      paragraph.classList.remove('iwXk2R');
+      const expandedHeight = wrapper.getBoundingClientRect().height;
+      const to = expanded ? expandedHeight : collapsedHeight;
       button.setAttribute('aria-expanded', String(expanded));
       button.textContent = expanded ? 'Read less' : 'Read more';
-      requestAnimationFrame(() => {
-        if (innerWidth <= 1000) scrubs.forEach(item => { item.viewRange = flowRange(item.source); });
-        updateMotion();
-      });
+      const finish = () => {
+        root.classList.toggle('standalone-text-expanded', expanded);
+        paragraph.classList.toggle('iwXk2R', !expanded);
+        wrapper.style.height = '';
+        expansionAnimation?.cancel();
+        expansionAnimation = null;
+        refreshTextMotion();
+      };
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { finish(); return; }
+      wrapper.style.height = `${to}px`;
+      expansionAnimation = wrapper.animate([{height:`${from}px`},{height:`${to}px`}],
+        {duration:650,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'});
+      expansionAnimation.onfinish = finish;
     });
     controls.append(button);
     root.append(controls);
