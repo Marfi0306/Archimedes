@@ -187,3 +187,15 @@ a.wixui-button.read-more-unavailable * { color:#99958e !important; }
 }
 
 .standalone-gallery--desktop .standalone-gallery__slide { width:calc((100vw - var(--scrollbar-width,0px) - 28px)/3); }
+
+/* Animate the wrapper while keeping the text in its natural full layout. */
+.wixui-collapsible-text [data-testid="ellipsis_text_viewer_text_wrapper"] { overflow:hidden; }
+@media(max-width:750px) {
+  #comp-mpuj4f1g img { object-position:50% 50% !important; }
+}
+@media(min-width:751px) and (max-width:1000px) {
+  #comp-mptu599w {
+    height:380px;
+    --bg-gradient:linear-gradient(0deg,rgba(204,202,197,0) 0%,#CCCAC5 44%);
+  }
+}
