@@ -40,13 +40,43 @@
   updateTabletHero();
   addEventListener('resize', updateTabletHero);
 
-  const artworkImages = ['comp-mpuaw403', 'comp-mpuaw6up', 'comp-mpuavud4'].map(id => document.getElementById(id));
-  if (artworkImages.every(Boolean)) {
-    const stage = document.createElement('div');
-    stage.className = 'artwork-image-stage';
-    artworkImages[0].before(stage);
-    stage.append(...artworkImages);
-  }
+  const artworkContainer = document.querySelector('#comp-lxusfayp .comp-lxusfayp-container');
+  const artworkCopy = document.getElementById('comp-mpubv8v4');
+  const updateArtworkClearance = () => {
+    if (artworkContainer && artworkCopy) {
+      artworkContainer.style.setProperty('--artwork-copy-height', `${artworkCopy.offsetHeight}px`);
+    }
+  };
+  if (artworkCopy) new ResizeObserver(updateArtworkClearance).observe(artworkCopy);
+  updateArtworkClearance();
+
+  // The static export omits Wix's client-created expansion control.
+  document.querySelectorAll('.wixui-collapsible-text').forEach(root => {
+    const paragraph = root.querySelector('.wixui-collapsible-text__text');
+    if (!paragraph) return;
+    paragraph.id ||= `${root.parentElement.id}-content`;
+    const controls = document.createElement('div');
+    controls.className = 'wZznb7 y3UDND';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'b7QPv6 j5RDF8 wixui-collapsible-text__button ljuUvE';
+    button.textContent = 'Read more';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', paragraph.id);
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') !== 'true';
+      root.classList.toggle('standalone-text-expanded', expanded);
+      paragraph.classList.toggle('iwXk2R', !expanded);
+      button.setAttribute('aria-expanded', String(expanded));
+      button.textContent = expanded ? 'Read less' : 'Read more';
+      requestAnimationFrame(() => {
+        if (innerWidth <= 1000) scrubs.forEach(item => { item.viewRange = flowRange(item.source); });
+        updateMotion();
+      });
+    });
+    controls.append(button);
+    root.append(controls);
+  });
   document.querySelectorAll('a.wixui-button').forEach(link => {
     if (!/^read more$/i.test(link.textContent.trim())) return;
     link.removeAttribute('href');
@@ -435,7 +465,7 @@
       const start = (effect.startOffset?.offset?.value ?? 0) / 100;
       const end = (effect.endOffset?.offset?.value ?? 100) / 100;
       // Give the two side images more scroll distance on mobile and tablet.
-      const scrollSpan = innerWidth <= 1000 && artworkSideImageIds.has(source.id) ? 1.5 : 1;
+      const scrollSpan = innerWidth <= 750 && artworkSideImageIds.has(source.id) ? 1.5 : 1;
       const currentTime = clamp((cover - start) / ((end - start || 1) * scrollSpan)) * 1000;
       animations.forEach(animation => { animation.currentTime = currentTime; });
     }
