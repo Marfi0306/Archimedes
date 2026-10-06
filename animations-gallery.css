@@ -166,17 +166,18 @@ a.wixui-button.read-more-unavailable:hover {
   --bg:#eeece7; --brd:#b5b1aa; --txt:#99958e;
 }
 a.wixui-button.read-more-unavailable * { color:#99958e !important; }
-.artwork-image-stage { display:contents; }
 @media(min-width:751px) and (max-width:1000px) {
   #comp-mpvibs8d .comp-mpvibs8d-container { grid-template-rows:auto auto; }
   #comp-mpvibs9m6 { min-height:0 !important; grid-template-rows:auto !important; }
-  .artwork-image-stage {
-    display:grid; grid-area:1/1/2/2; grid-template:1fr / minmax(0,1fr);
-    width:58%; height:100%; margin-left:4%; position:relative; overflow:clip;
+  #comp-mpuaw403, #comp-mpuaw6up {
+    margin-top:max(calc(.2390438 * (var(--scaling-factor) - var(--scrollbar-width))),calc(var(--artwork-copy-height,260px) + 48px));
   }
-  .artwork-image-stage :is(#comp-mpuaw403,#comp-mpuaw6up,#comp-mpuavud4) {
-    width:42%; justify-self:center; margin-left:0; margin-right:0;
+  #comp-mpuavud4 {
+    margin-top:max(calc(.2788845 * (var(--scaling-factor) - var(--scrollbar-width))),calc(var(--artwork-copy-height,260px) + 80px));
   }
+}
+.wixui-collapsible-text.standalone-text-expanded .wixui-collapsible-text__text {
+  display:block; -webkit-line-clamp:unset; line-clamp:unset; max-height:none; overflow:visible;
 }
 @media(max-width:750px) {
   #comp-mpwh0mgi::before {
